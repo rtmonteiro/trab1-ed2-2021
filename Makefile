@@ -9,13 +9,12 @@ EXECUTABLE	:= trab1
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 
-ARGS0 := ./in-exemplos/0.txt
-ARGS1 := ./in-exemplos/1.txt
-ARGS2 := ./in-exemplos/2.txt
-ARGS3 := ./in-exemplos/3.txt
-ARGS4 := ./in-exemplos/4.txt
-ARGS5 := ./in-exemplos/5.txt
-K     := 3
+ARGS0 := ./in-exemplos/0.txt 3
+ARGS1 := ./in-exemplos/1.txt 2
+ARGS2 := ./in-exemplos/2.txt 4
+ARGS3 := ./in-exemplos/3.txt 5
+ARGS4 := ./in-exemplos/4.txt 5
+ARGS5 := ./in-exemplo/5.txt 10
 SAIDA := saida.txt
 
 VALGRIND	:= 
@@ -31,22 +30,22 @@ clean:
 	-$(RM) $(OBJECTS)
 
 run0: 
-	./$(EXECUTABLE) $(ARGS0) $(K) $(SAIDA)
+	./$(EXECUTABLE) $(ARGS0) $(SAIDA)
 
 run1: 
-	./$(EXECUTABLE) $(ARGS1) $(K) $(SAIDA)
+	./$(EXECUTABLE) $(ARGS1) $(SAIDA)
 
 run2: 
-	./$(EXECUTABLE) $(ARGS2) $(K) $(SAIDA)
+	./$(EXECUTABLE) $(ARGS2) $(SAIDA)
 
 run3: 
-	./$(EXECUTABLE) $(ARGS3) $(K) $(SAIDA)
+	./$(EXECUTABLE) $(ARGS3) $(SAIDA)
 
 run4: 
-	./$(EXECUTABLE) $(ARGS4) $(K) $(SAIDA)
+	./$(EXECUTABLE) $(ARGS4) $(SAIDA)
 
 run5: 
-	./$(EXECUTABLE) $(ARGS5) $(K) $(SAIDA)
+	./$(EXECUTABLE) $(ARGS5) $(SAIDA)
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(CINCLUDES) $^ -o $@ $(LIBRARIES) -lm
