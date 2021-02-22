@@ -5,16 +5,19 @@ typedef struct celula Cel;
 struct celula {
     Cel *prox;
     void* ponto;
-    };
+};
 
 struct lista{
     Cel* prim;
     Cel* ult;
+    int qtd;
 };
 
 Lista* initLista (void) {
     Lista* lista = (Lista*) malloc (sizeof(lista));
     lista->prim = lista->ult = NULL;
+    lista->qtd = 0;
+    return lista;
 }
 
 void insereListaIni (Lista* lista, void* ponto) {
@@ -33,6 +36,8 @@ void insereListaIni (Lista* lista, void* ponto) {
     if (lista->ult == NULL) {
         lista->ult = nova;
     }
+
+    lista->qtd++;
 }
 
 void insereListaFim (Lista* lista, void* ponto) {
@@ -52,6 +57,8 @@ void insereListaFim (Lista* lista, void* ponto) {
         lista->ult->prox = nova;
         lista->ult = nova;
     }
+
+    lista->qtd++;
 }
 
 void liberaLista (Lista* lista) {
