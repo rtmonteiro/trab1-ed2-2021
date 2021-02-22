@@ -20,23 +20,7 @@ Lista* initLista (void);
  * input: void
  * output: Lista* 
  */
-void insereListaIni (Lista* lista, void* ponto) {
-    if(lista == NULL)
-        exit(1);
-    if(ponto == NULL)
-        exit(1);
-
-    Cel* nova = (Cel*) malloc (sizeof(Cel));
-    
-    nova->ponto = ponto;
-    nova->prox = lista->prim;
-    lista->prim = nova;
-
-    // Se a lista estiver vazia anteriormente
-    if (lista->ult == NULL) {
-        lista->ult = nova;
-    }
-}
+void insereListaIni (Lista* lista, void* ponto);
 
 /* 
  * Insere um ponto no final da lista
