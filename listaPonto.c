@@ -20,6 +20,7 @@ Lista* initLista (void) {
     return lista;
 }
 
+// WIP
 void insereListaIni (Lista* lista, void* ponto) {
     if(lista == NULL)
         exit(1);
@@ -32,7 +33,7 @@ void insereListaIni (Lista* lista, void* ponto) {
     nova->prox = lista->prim;
     lista->prim = nova;
 
-    // Se a lista estiver vazia anteriormente
+    // Se a lista estiver vazia inicialmente
     if (lista->ult == NULL) {
         lista->ult = nova;
     }
@@ -40,6 +41,7 @@ void insereListaIni (Lista* lista, void* ponto) {
     lista->qtd++;
 }
 
+// WIP
 void insereListaFim (Lista* lista, void* ponto) {
     if(lista == NULL)
         exit(1);
@@ -50,6 +52,7 @@ void insereListaFim (Lista* lista, void* ponto) {
     nova->ponto = ponto;
     nova->prox = NULL;
 
+    // Se a lista tiver vazia inicialmente
     if (lista->prim == NULL) {
         lista->prim = nova;
         lista->ult = lista->prim;
@@ -61,6 +64,17 @@ void insereListaFim (Lista* lista, void* ponto) {
     lista->qtd++;
 }
 
+// WIP
+void* distancias (Lista* lista, void (*func)(Ponto*, Ponto*)) {
+    // Percore lista de forma que ponto1 é sempre diferente de ponto2
+    for(Cel* ponto1 = lista->prim; ponto1 != NULL ; ponto1=ponto1->prox) {
+     for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox ) {
+            // Calcula a distancia entre ponto1 e ponto2 e armaena numa lista
+            // Distancias* todasDistancias = func(getPonto(ponto1), getPonto(ponto2));
+     }
+}
+
+// WIP
 void liberaLista (Lista* lista) {
     Cel* aux1,* aux2;
     

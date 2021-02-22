@@ -29,6 +29,13 @@ void insereListaIni (Lista* lista, void* ponto);
  */
 void insereListaFim (Lista* lista, void* ponto);
 
+/* 
+ * Percorre a pilha de forma que ponto1 != ponto2 e aplica a funcao func
+ * input: Lista*, void(Ponto*, Ponto*)
+ * output: void*
+ */
+void* distancias (Lista* lista, void (*func)(Ponto*, Ponto*));
+
 /*
  * Libera a memoria alocada
  * input: Lista*
