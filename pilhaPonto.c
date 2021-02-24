@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "pilhaPonto.h"
 
 typedef struct celula Cel;
@@ -57,7 +56,7 @@ void* pop (Pilha* pilha) {
 }
 
 // WIP
-void* distancias (Pilha* pilha, void (*func)(Ponto*, Ponto*)) {
+void* distancias (Pilha* pilha, void (*func)(void*, void*)) {
     // Percore pilha de forma que ponto1 é sempre diferente de ponto2
     for(Cel* ponto1 = pilha; ponto1 != NULL ; ponto1=ponto1->prox) {
         for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox ) {

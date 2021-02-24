@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "listaPonto.h"
 
 typedef struct celula Cel;
@@ -20,6 +21,7 @@ Lista* initLista (void) {
     return lista;
 }
 
+// 3N 
 // WIP
 void insereListaIni (Lista* lista, void* ponto) {
     if(lista == NULL)
@@ -68,10 +70,10 @@ void insereListaFim (Lista* lista, void* ponto) {
 void* distancias (Lista* lista, void (*func)(Ponto*, Ponto*)) {
     // Percore lista de forma que ponto1 é sempre diferente de ponto2
     for(Cel* ponto1 = lista->prim; ponto1 != NULL ; ponto1=ponto1->prox) {
-     for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox ) {
+        for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox ) {
             // Calcula a distancia entre ponto1 e ponto2 e armazena numa lista
             // Distancias* todasDistancias = func(ponto1->ponto, ponto2->ponto);
-     }
+        }
 }
 
 // WIP
