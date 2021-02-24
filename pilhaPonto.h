@@ -30,7 +30,7 @@ void* pop (Pilha* pilha);
  * input: Pilha*, void (Ponto*, Ponto*)
  * output: void*
  */ 
-void* distancias (Pilha* pilha, void (*func)(Ponto*, Ponto*));
+void* distanciasPilha (Pilha* pilha, void (*func)(void*, void*));
 
 /* 
  * Libera memoria alocada pela pilha
