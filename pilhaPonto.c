@@ -32,7 +32,7 @@ void push (Pilha* pilha, void* ponto) {
     aux->ponto = ponto;
 
     if (pilha->qtd > -1) {
-        aux->prox = s->pontos;
+        aux->prox = pilha->pontos;
     } else {
         aux->prox = NULL;
     }
