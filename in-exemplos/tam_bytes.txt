@@ -1,0 +1,6 @@
+0.txt: 4,688 bytes allocated
+1.txt: 4,688 bytes allocated
+2.txt: 4,688 bytes allocated
+3.txt: 4,688 bytes allocated
+4.txt: 4,928 bytes allocated
+5.txt: 4,928 bytes allocated

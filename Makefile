@@ -50,20 +50,23 @@ run5:
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(CINCLUDES) $^ -o $@ $(LIBRARIES) -lm
 
-val1: all
+val0: 
+	valgrind ./$(EXECUTABLE) $(ARGS0)
+
+val1: 
 	valgrind ./$(EXECUTABLE) $(ARGS1)
 
-val2: all
+val2: 
 	valgrind ./$(EXECUTABLE) $(ARGS2)
 
-val3: all
+val3: 
 	valgrind ./$(EXECUTABLE) $(ARGS3)
 	
-val4: all
+val4: 
 	valgrind ./$(EXECUTABLE) $(ARGS4)
 
-val5: all
+val5: 
 	valgrind ./$(EXECUTABLE) $(ARGS5)
 	
-full: all
+full: 
 	- valgrind -v --leak-check=full ./$(EXECUTABLE) $(N)

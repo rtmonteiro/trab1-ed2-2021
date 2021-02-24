@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilhaPonto.h"
+#include "pilha.h"
 
 typedef struct celula Cel;
 struct celula {
