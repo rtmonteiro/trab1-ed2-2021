@@ -34,7 +34,7 @@ void insereListaFim (Lista* lista, void* ponto);
  * input: Lista*, void(Ponto*, Ponto*)
  * output: void*
  */
-void* distancias (Lista* lista, void (*func)(Ponto*, Ponto*));
+void* distancias (Lista* lista, void (*func)(void*, void*));
 
 /*
  * Libera a memoria alocada
