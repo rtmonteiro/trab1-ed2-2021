@@ -2,24 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Ponto ponto;
-typedef struct Lista lista;
-typedef struct Celula celula;
-
-struct Ponto {
-    char *id;
-    int *pontos;
-};
-
-struct Lista {
-    celula *prim;
-};
-
-struct Celula {
-    void *conteudo;
-    celula *prox;
-};
-
 int main(int argc, char** argv ) {
 
     char *FILENAME = argv[1];
@@ -34,19 +16,20 @@ int main(int argc, char** argv ) {
         return EXIT_FAILURE;
     }
 
-    int m = -1;
+    int m = 0;
     /* Get the first line of the file. */
     getline(&line_buf, &line_buf_size, fp);
-    char *token = strtok(line_buf, ",");
+    char *token = strtok(line_buf, ","); /* pega o id do  */
     printf("ponto %s: ", token);
+    double *coord = NULL;
     while (token) {
         token = strtok(NULL, ",");
-        double coord;
         if (token) {
-            coord = strtod(token, NULL);
-            printf("%f ", coord);
+            m++; /* Ao ler uma nova coordenada, atualiza a dimensão dos pontos */
+            coord = (double *) realloc(coord, sizeof(double) * (m + 1));
+            coord[m] = strtod(token, NULL);
+            printf("%f ", coord[m]);
         }
-        m++;
     }
     printf("\n");
 
@@ -62,10 +45,11 @@ int main(int argc, char** argv ) {
         token = NULL;
         token = strtok(line_buf, ",");
         printf("ponto %s: ", token);
+        double *coords = (double*) malloc(sizeof(double) * m);
         for (int i = 0; i < m; ++i) {
             token = strtok(NULL, ",");
-            double coord = strtod(token, NULL);
-            printf("%f ", coord);
+            coords[i] = strtod(token, NULL);
+            printf("%f ", coords[i]);
         }
         printf("\n");
 
