@@ -32,7 +32,7 @@ Distancia* initDistancia(Ponto* p1, Ponto* p2){
 void liberaDistancia(Distancia* vetDistancia){
     for (int i = 0; i < tam; i++)
     {
-        /* code */
+        
     }
     
 }
