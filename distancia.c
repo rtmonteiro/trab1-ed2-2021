@@ -29,10 +29,12 @@ Distancia* initDistancia(Ponto* p1, Ponto* p2){
     return distancia;
 }
 
-void liberaDistancia(Distancia* vetDistancia){
-    for (int i = 0; i < tam; i++)
-    {
+void liberaDistancia(Distancia* vetDistancia, int n){
+    // TODO: calcular de novo o n?
+
+    // for (int i = 0; i < n; i++)
+    // {
         
-    }
+    // }
     
 }
