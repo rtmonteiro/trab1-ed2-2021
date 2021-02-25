@@ -1,42 +1,58 @@
 #ifndef PILHA_H
-#define PILHA_H
-// include "ponto.h"
+    #define PILHA_H
 
-typedef struct pilha Pilha;
+    #include "ponto.h"
+    #include "distancia.h"
 
-/* 
- * Inicializa uma pilha vazia
- * input: void*
- * output: Pilha* 
- */ 
-Pilha* initPilha (void);
+    /**
+     * Define o tipo opaco Pilha
+     * Possui lista de ponto, quantidade de pontos e quantidade de coordenadas 
+     **/ 
+    typedef struct pilha Pilha;
 
-/* 
- * Coloca ponto como o ultimo elemento da pilha
- * input: Pilha*, void*
- * output: void
- */ 
-void push (Pilha* pilha, void* ponto);
+    /**
+    * Inicializa uma pilha vazia
+    * input: void*
+    * output: Pilha*
+    * pré-condição: nada
+    * pós-condição: estrutura pilha alocada
+    **/ 
+    Pilha* initPilha (void);
 
-/* 
- * Retira o ultimo elemento da pilha
- * input: Pilha*
- * output: void* 
- */ 
-void* pop (Pilha* pilha);
+    /**
+    * Coloca ponto como o ultimo elemento da pilha
+    * input: Pilha*, void*
+    * output: void
+    * pré-condição: pilha e ponto não estão vazios
+    * pós-condição: ponto é adicionado ao início da lista na pilha e o topo é incrementado 1
+    **/ 
+    void push (Pilha* pilha, Ponto* ponto);
 
-/* 
- * Percorre a pilha de forma que ponto1 != ponto2 e aplica a funcao func
- * input: Pilha*, void (Ponto*, Ponto*)
- * output: void*
- */ 
-void* distanciasPilha (Pilha* pilha, void (*func)(void*, void*));
+    /**
+    * Retira o ultimo elemento da pilha
+    * input: Pilha*
+    * output: void* 
+    * pré-condição: pilha existe
+    * pós-condição: ultimo ponto adicionado a lista eh retirado
+    **/ 
+    Ponto* pop (Pilha* pilha);
 
-/* 
- * Libera memoria alocada pela pilha
- * input: void*
- * output: Pilha* 
- */ 
-void freePilha (Pilha* pilha);
+    /** 
+    * Percorre a pilha de forma que ponto1 != ponto2 e aplica a funcao func
+    * input: Pilha*
+    * output: void*
+    * pré-condição: pilha nao eh vazia
+    * pos-condição: vetor com distancias entre os pontos existe
+    **/ 
+    Distancia** distanciasPilha (Pilha* pilha);
+
+    /** 
+    * Libera memoria alocada pela pilha
+    * input: void*
+    * output: Pilha* 
+    * pré-condição: pilha existe
+    * pós-condição: memoria alocada para pontos da pilha e a pilha eh liberada
+    **/ 
+    void liberaPilha (Pilha* pilha);
 
 #endif
