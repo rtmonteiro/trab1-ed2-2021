@@ -1,6 +1,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "ponto.h"
+#include "pilha.h"
+#include "distancia.h"
 
 int main(int argc, char** argv ) {
 
@@ -64,6 +67,7 @@ int main(int argc, char** argv ) {
 
     /* Close the file now that we are done with it */
     fclose(fp);
+
 
     return EXIT_SUCCESS;
 }

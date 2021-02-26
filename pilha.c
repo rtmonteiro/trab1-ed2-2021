@@ -64,7 +64,7 @@ Distancia** distanciasPilha (Pilha* pilha) {
 
     // Percore pilha de forma que ponto1 é sempre diferente de ponto2 
     // ponto2 eh o ponto apos ponto1
-    for(Cel* ponto1 = pilha; ponto1 != NULL ; ponto1=ponto1->prox) {
+    for(Cel* ponto1 = pilha->pontos; ponto1 != NULL ; ponto1=ponto1->prox) {
         for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox, i++) {
             // Calcula a distancia entre ponto1 e ponto2 e armazena num vetor
             dist[i] = initDistancia(ponto1->ponto, ponto2->ponto, pilha->coord);

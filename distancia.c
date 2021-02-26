@@ -10,15 +10,15 @@ struct distancia
     double dist;
 };
 
-Distancia* initVetDistancia(int n){
+Distancia** initVetDistancia(int n){
     int tam = ((n-1) * n)/2;
-    Distancia* vetdist = (Distancia*) malloc (sizeof(Distancia) * tam);
+    Distancia** vetdist = (Distancia**) malloc (sizeof(Distancia*) * tam);
 
     return vetdist;       
 }
 
-Distancia* initDistancia(Ponto* p1, Ponto* p2){
-    double dist = calculaDistanciaEntrePontos(p1, p2);
+Distancia* initDistancia(Ponto* p1, Ponto* p2, int m){
+    double dist = calculaDistanciaEntrePontos(p1, p2, m);
 
     Distancia* distancia = (Distancia*) malloc (sizeof(Distancia));
 
@@ -29,12 +29,18 @@ Distancia* initDistancia(Ponto* p1, Ponto* p2){
     return distancia;
 }
 
-void liberaDistancia(Distancia* vetDistancia, int n){
-    // TODO: calcular de novo o n?
+int comparaDistancia(const void* d1, const void* d2){
+    int pri = ((Distancia*) d1)->dist;
+    int seg = ((Distancia*) d2)->dist;
+    return (pri - seg);
+}
 
-    // for (int i = 0; i < n; i++)
-    // {
-        
-    // }
-    
+void liberaDistancia(Distancia** vetDistancia, int n){
+    int tam = ((n-1) * n)/2;
+
+    for (int i = 0; i < tam; i++)
+    {
+        free(vetDistancia[i]);
+    }
+    free(vetDistancia);
 }
