@@ -28,14 +28,14 @@ int main(int argc, char** argv ) {
     getline(&line_buf, &line_buf_size, fp);
 
     char *token = strtok(line_buf, ","); /* pega o id do  */
+    char *idPonto = strdup(line_buf);
     
     printf("ponto %s: ", token);
 
     while (token) {
         token = strtok(NULL, ",");
         if (token) {
-            if (m % 10 == 0)
-            {
+            if (m % 10 == 0){
                 coord = (double *) realloc(coord, sizeof(double) * (TAM + m));
             }
             
