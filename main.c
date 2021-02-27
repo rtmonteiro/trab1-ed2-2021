@@ -5,6 +5,8 @@
 #include "pilha.h"
 #include "distancia.h"
 
+#define TAM 10
+
 int main(int argc, char** argv ) {
 
     char *FILENAME = argv[1];
@@ -19,17 +21,25 @@ int main(int argc, char** argv ) {
         return EXIT_FAILURE;
     }
 
-    int m = 0;
+    int m = 0, cont = 1;
+    double *coord = NULL;
+
     /* Get the first line of the file. */
     getline(&line_buf, &line_buf_size, fp);
+
     char *token = strtok(line_buf, ","); /* pega o id do  */
+    
     printf("ponto %s: ", token);
-    double *coord = NULL;
+
     while (token) {
         token = strtok(NULL, ",");
         if (token) {
+            if (m % 10 == 0)
+            {
+                coord = (double *) realloc(coord, sizeof(double) * (TAM + m));
+            }
+            
             m++; /* Ao ler uma nova coordenada, atualiza a dimensão dos pontos */
-            coord = (double *) realloc(coord, sizeof(double) * (m + 1));
             coord[m] = strtod(token, NULL);
             printf("%f ", coord[m]);
         }
@@ -52,7 +62,7 @@ int main(int argc, char** argv ) {
         for (int i = 0; i < m; ++i) {
             token = strtok(NULL, ",");
             coords[i] = strtod(token, NULL);
-            printf("%f ", coords[i]);
+            printf("%lf ", coords[i]);
         }
         printf("\n");
 
