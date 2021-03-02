@@ -4,74 +4,80 @@
     #include "ponto.h"
     #include "distancia.h"
 
-    /**
-     * Define o tipo opaco Pilha
-     * Possui lista de ponto, quantidade de pontos e quantidade de coordenadas 
-     **/ 
+
+    // Define o tipo opaco Pilha
     typedef struct pilha Pilha;
 
     /**
-    * Inicializa uma pilha vazia
-    * input: void*
-    * output: Pilha*
-    * pré-condição: nada
-    * pós-condição: estrutura pilha alocada
+     * Inicializa uma pilha vazia
+     * @return estrutura Pilha inicializada
+     * @pre nada
+     * @post pilha alocada
     **/ 
     Pilha* initPilha (void);
 
     /**
     * Coloca ponto como o ultimo elemento da pilha
-    * input: Pilha*, void*
-    * output: void
-    * pré-condição: pilha e ponto não estão vazios
-    * pós-condição: ponto é adicionado ao início da lista na pilha e o topo é incrementado 1
+    * @param {Pilha*}pilha
+    * @param {Ponto*}ponto ponto que será inserido na pilha
+    * @return nada
+    * @pre pilha e ponto inicializados
+    * @post ponto é adicionado ao início da lista na pilha e o topo é incrementado 1
     **/ 
     void push (Pilha* pilha, Ponto* ponto);
 
     /**
     * Retira o ultimo elemento da pilha
-    * input: Pilha*
-    * output: void* 
-    * pré-condição: pilha existe
-    * pós-condição: ultimo ponto adicionado a lista eh retirado
+    * @param {Pilha*}pilha
+    * @return nada 
+    * @pre pilha inicializada
+    * @post ultimo ponto adicionado a lista é retirado
     **/ 
     Ponto* pop (Pilha* pilha);
 
     /** 
     * Percorre a pilha de forma que ponto1 != ponto2 e aplica a funcao func
-    * input: Pilha*
-    * output: void*
-    * pré-condição: pilha nao eh vazia
-    * pós-condição: vetor com distancias entre os pontos existe
+    * @param {Pilha*}pilha
+    * @return nada
+    * @pre pilha inicializada e não vazia
+    * @post vetor com distancias entre os pontos existe
     **/ 
     Distancia** distanciasPilha (Pilha* pilha);
 
     /** 
     * Retorna quantidade de elementos na pilha
-    * input: Pilha*
-    * output: int
-    * pré-condição: pilha esta alocada
-    * pós-condição: nada
+    * @param {Pilha*}pilha
+    * @return int quantidade de itens na pilha
+    * @pre pilha inicializada e não vazia
+    * @post nada
     **/ 
     int getQtd(Pilha* pilha);
 
     /** 
-    * Retorna a quantidade de coordenadas dos pontos
-    * input: Pilha*
-    * output: int
-    * pré-condição: pilha esta alocada
-    * pos-condição: nada
+    * Retorna a dimensão de coordenadas dos pontos
+    * @param {Pilha*}pilha
+    * @return int dimensão dos pontos da pilha
+    * @pre pilha inicializada e não vazia
+    * @post nada
     **/ 
     int getDimensao(Pilha* pilha);
 
+    /** 
+    * Modifica a dimensão de coordenadas dos pontos da pilha
+    * @param {Pilha*}pilha
+    * @param {int}m dimensão dos ponto
+    * @return int dimensão dos pontos da pilha
+    * @pre pilha inicializada e não vazia
+    * @post dimensao modificada
+    **/ 
     void setDimensao(Pilha* pilha, int m);
     
     /** 
     * Libera memoria alocada pela pilha
-    * input: void*
-    * output: Pilha* 
-    * pré-condição: pilha existe
-    * pós-condição: memoria alocada para pontos da pilha e a pilha eh liberada
+    * @param {Pilha*}pilha
+    * @return nada
+    * @pre pilha inicializada 
+    * @post memoria alocada para pontos da pilha e a pilha eh liberada
     **/ 
     void liberaPilha (Pilha* pilha);
 

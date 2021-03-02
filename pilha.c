@@ -11,9 +11,9 @@ struct celula {
 };
 
 struct pilha {
-    int qtd;
-    int dimensao;
-    Cel* pontos;
+    int qtd; // quantidade de pontos na pilha
+    int dimensao; // dimensao das coordenadas do ponto
+    Cel* pontos; 
 };
 
 

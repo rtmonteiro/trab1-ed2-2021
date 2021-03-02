@@ -7,7 +7,7 @@ struct distancia
 {
     Ponto* p1;
     Ponto* p2;
-    double dist;
+    double dist; // distancia entre os pontos
 };
 
 Distancia** initVetDistancia(int n){
