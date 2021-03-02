@@ -11,8 +11,8 @@
     // define o tipo opaco Distancia
     typedef struct distancia Distancia;
 
-size_t sizeOfDistancia();
-
+    size_t sizeOfDistancia();
+    void ordenaVetDistancia(Distancia** vetDist, int n);
 
     /**
      * Inicializa um vetor de Distancias

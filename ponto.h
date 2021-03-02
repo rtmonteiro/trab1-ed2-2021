@@ -29,14 +29,6 @@
     double calculaDistanciaEntrePontos(Ponto *p1, Ponto *p2, int m);
 
     /**
-     * Retorna a posição do ponto na pilha
-     * input: Ponto*
-     * output: int
-     * pré-condição: ponto alocado
-     * pós-condição: nada
-    **/
-
-    /**
      * Retorna o indice do ponto na pilha
      * @param {Ponto*}p 
      * @return posição do ponto (ordem que foi adicionado a pilha)
