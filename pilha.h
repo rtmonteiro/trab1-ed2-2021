@@ -42,10 +42,28 @@
     * input: Pilha*
     * output: void*
     * pré-condição: pilha nao eh vazia
-    * pos-condição: vetor com distancias entre os pontos existe
+    * pós-condição: vetor com distancias entre os pontos existe
     **/ 
     Distancia** distanciasPilha (Pilha* pilha);
 
+    /** 
+    * Retorna quantidade de elementos na pilha
+    * input: Pilha*
+    * output: int
+    * pré-condição: pilha esta alocada
+    * pós-condição: nada
+    **/ 
+    int getQtd(Pilha* pilha);
+
+    /** 
+    * Retorna a quantidade de coordenadas dos pontos
+    * input: Pilha*
+    * output: int
+    * pré-condição: pilha esta alocada
+    * pos-condição: nada
+    **/ 
+    int getCoord(Pilha* pilha);
+    
     /** 
     * Libera memoria alocada pela pilha
     * input: void*

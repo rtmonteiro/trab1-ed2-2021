@@ -16,14 +16,14 @@ struct pilha {
     Cel* pontos;
 };
 
-Pilha* initPilha (void) {
+Pilha* initPilha(void) {
     Pilha* pilha = (Pilha*) malloc (sizeof(Pilha));
     pilha->qtd = pilha->coord = 0;
     pilha->pontos = NULL;
     return pilha;
 }
 
-void push (Pilha* pilha, Ponto* ponto) {
+void push(Pilha* pilha, Ponto* ponto) {
     if (pilha == NULL || ponto == NULL) {
         printf("Pilha ou ponto nao inicializado\n");
         exit(1);
@@ -42,8 +42,7 @@ void push (Pilha* pilha, Ponto* ponto) {
     pilha->qtd++;
 }
 
-// WIP
-Ponto* pop (Pilha* pilha) {
+Ponto* pop(Pilha* pilha) {
     if (pilha == NULL || pilha->qtd > 0) {
         printf("Pilha NULL ou vazia\n");
         return NULL;
@@ -57,7 +56,6 @@ Ponto* pop (Pilha* pilha) {
     return aux->ponto;
 }
 
-// WIP
 Distancia** distanciasPilha (Pilha* pilha) {
     Distancia** dist = initVetDistancia(pilha->qtd);
     int i = 0;
@@ -74,13 +72,20 @@ Distancia** distanciasPilha (Pilha* pilha) {
     return dist;
 }
 
-// WIP
+int getQtd(Pilha* pilha) {
+    return pilha->qtd;
+}
+
+int getCoord(Pilha* pilha) {
+    return pilha->coord;
+}
+
 static void liberaPontos (Cel* cel) {
     Cel* aux1 = cel,* aux2;
 
     while (aux1 != NULL) {
         aux2 = aux1->prox;
-        // freePonto(aux1);
+        freePonto(aux1);
         aux1 = aux2;
     }
 }
