@@ -62,7 +62,9 @@
     * pré-condição: pilha esta alocada
     * pos-condição: nada
     **/ 
-    int getCoord(Pilha* pilha);
+    int getDimensao(Pilha* pilha);
+
+    void setDimensao(Pilha* pilha, int m);
     
     /** 
     * Libera memoria alocada pela pilha

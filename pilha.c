@@ -16,12 +16,14 @@ struct pilha {
     Cel* pontos;
 };
 
+
 Pilha* initPilha(void) {
     Pilha* pilha = (Pilha*) malloc (sizeof(Pilha));
     pilha->qtd = pilha->dimensao = 0;
     pilha->pontos = NULL;
     return pilha;
 }
+
 
 void push(Pilha* pilha, Ponto* ponto) {
     if (pilha == NULL || ponto == NULL) {
@@ -42,6 +44,7 @@ void push(Pilha* pilha, Ponto* ponto) {
     pilha->qtd++;
 }
 
+
 Ponto* pop(Pilha* pilha) {
     if (pilha == NULL || pilha->qtd > 0) {
         printf("Pilha NULL ou vazia\n");
@@ -55,6 +58,7 @@ Ponto* pop(Pilha* pilha) {
 
     return aux->ponto;
 }
+
 
 Distancia** distanciasPilha (Pilha* pilha) {
     Distancia** dist = initVetDistancia(pilha->qtd);
@@ -72,13 +76,21 @@ Distancia** distanciasPilha (Pilha* pilha) {
     return dist;
 }
 
+
 int getQtd(Pilha* pilha) {
     return pilha->qtd;
 }
 
+
 int getDimensao(Pilha* pilha) {
     return pilha->dimensao;
 }
+
+
+void setDimensao(Pilha* pilha, int m) {
+    pilha->dimensao = m;
+}
+
 
 static void liberaPontos (Cel* cel) {
     Cel *aux1 = cel;
@@ -91,6 +103,7 @@ static void liberaPontos (Cel* cel) {
         aux1 = aux2;
     }
 }
+
 
 void liberaPilha (Pilha* pilha) {
     liberaPontos(pilha->pontos);
