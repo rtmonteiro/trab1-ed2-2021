@@ -63,6 +63,7 @@ Ponto* pop(Pilha* pilha) {
 Distancia** distanciasPilha (Pilha* pilha) {
     Distancia** dist = initVetDistancia(pilha->qtd);
     int i = 0;
+    int sizeoDistancia = sizeOfDistancia();
 
     // Percore pilha de forma que ponto1 é sempre diferente de ponto2 
     // ponto2 eh o ponto apos ponto1
@@ -72,6 +73,8 @@ Distancia** distanciasPilha (Pilha* pilha) {
             dist[i] = initDistancia(ponto1->ponto, ponto2->ponto, pilha->dimensao);
         }
     }
+
+    qsort(dist, pilha->qtd, sizeoDistancia, comparaDistancia);
 
     return dist;
 }

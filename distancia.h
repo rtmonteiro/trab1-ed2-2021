@@ -11,6 +11,9 @@
     // define o tipo opaco Distancia
     typedef struct distancia Distancia;
 
+size_t sizeOfDistancia();
+
+
     /**
      * Inicializa um vetor de Distancias
      * input: um inteiro

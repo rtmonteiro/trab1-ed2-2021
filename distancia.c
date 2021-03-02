@@ -10,6 +10,10 @@ struct distancia
     double dist; // distancia entre os pontos
 };
 
+size_t sizeOfDistancia() {
+    return sizeof(Distancia);
+}
+
 Distancia** initVetDistancia(int n){
     int tam = ((n-1) * n)/2;
     Distancia** vetdist = (Distancia**) malloc (sizeof(Distancia*) * tam);
