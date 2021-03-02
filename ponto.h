@@ -28,7 +28,7 @@
      * input: Ponto*
      * output: int
      * pré-condição: ponto alocado
-     * pós-condição: retorno do int
+     * pós-condição: nada
     **/
     int getPos(Ponto* p);
 
