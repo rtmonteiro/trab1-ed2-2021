@@ -81,11 +81,13 @@ int getDimensao(Pilha* pilha) {
 }
 
 static void liberaPontos (Cel* cel) {
-    Cel* aux1 = cel,* aux2;
+    Cel *aux1 = cel;
+    Cel *aux2;
 
     while (aux1 != NULL) {
         aux2 = aux1->prox;
-        liberaPonto(aux1);
+        liberaPonto(aux1->ponto);
+        free(aux1);
         aux1 = aux2;
     }
 }
