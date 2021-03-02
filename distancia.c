@@ -14,6 +14,11 @@ size_t sizeOfDistancia() {
     return sizeof(Distancia);
 }
 
+void ordenaVetDistancia(Distancia** vetDist, int n){
+    int tam = ((n-1) * n)/2;
+    qsort(vetDist, tam, sizeof(Distancia), comparaDistancia);
+}
+
 Distancia** initVetDistancia(int n){
     int tam = ((n-1) * n)/2;
     Distancia** vetdist = (Distancia**) malloc (sizeof(Distancia*) * tam);
@@ -34,8 +39,8 @@ Distancia* initDistancia(Ponto* p1, Ponto* p2, int m){
 }
 
 int comparaDistancia(const void* d1, const void* d2){
-    int pri = ((Distancia*) d1)->dist;
-    int seg = ((Distancia*) d2)->dist;
+    double pri = ((Distancia*) d1)->dist;
+    double seg = ((Distancia*) d2)->dist;
     return (pri - seg);
 }
 

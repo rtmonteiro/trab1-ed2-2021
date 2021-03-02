@@ -74,7 +74,7 @@ Distancia** distanciasPilha (Pilha* pilha) {
         }
     }
 
-    qsort(dist, pilha->qtd, sizeoDistancia, comparaDistancia);
+    ordenaVetDistancia(dist, pilha->qtd);
 
     return dist;
 }
