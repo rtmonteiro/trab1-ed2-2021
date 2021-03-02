@@ -32,7 +32,7 @@ void push(Pilha* pilha, Ponto* ponto) {
     Cel* aux = (Cel*) malloc (sizeof(Cel));
     aux->ponto = ponto;
 
-    if (pilha->qtd > -1) {
+    if (pilha->qtd > 0) {
         aux->prox = pilha->pontos;
     } else {
         aux->prox = NULL;
@@ -85,7 +85,7 @@ static void liberaPontos (Cel* cel) {
 
     while (aux1 != NULL) {
         aux2 = aux1->prox;
-        freePonto(aux1);
+        liberaPonto(aux1);
         aux1 = aux2;
     }
 }
