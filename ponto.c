@@ -24,7 +24,6 @@ Ponto* initPonto(char *id, double *coords, int pos){
  * @example https://en.wikipedia.org/wiki/Euclidean_distance
  * @return distancia entre pontos em Rm
  */
-
 double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
     double sum;
     for (int i = 0; i < m; ++i) {
@@ -33,5 +32,20 @@ double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
     return sqrt(sum);
 }
 
+/**
+ * @param p
+ * @return retorna a posicao do ponto (ordem que foi adicionado a pilha)
+ */
+int getPos(Ponto* p) {
+    return p->id;
+}
 
-
+/**
+ * @param p
+ * @return retorna a posicao do ponto (ordem que foi adicionado a pilha)
+ */
+void liberaPonto(Ponto* p) {
+    free(p->id);
+    free(p->coords);
+    free(p);
+}

@@ -23,4 +23,21 @@
     **/
     double calculaDistanciaEntrePontos(Ponto *p1, Ponto *p2, int m);
 
+    /**
+     * Retorna a posição do ponto na pilha
+     * input: Ponto*
+     * output: int
+     * pré-condição: ponto alocado
+     * pós-condição: retorno do int
+    **/
+    int getPos(Ponto* p);
+
+    /**
+     * Libera memória alocada por ponto
+     * input: Ponto*
+     * output: void
+     * pré-condição: ponto alocado
+     * pós-condição: memória liberada
+    **/   
+    void liberaPonto(Ponto* p);
 #endif //TRAB1_ED2_2021_PONTO_H
