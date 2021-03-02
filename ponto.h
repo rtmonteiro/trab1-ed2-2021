@@ -7,19 +7,24 @@
 
     /**
      * Inicializa um ponto
-     * input: string referente ao id, vetor de doubles (coordenadas)
-     * output: estrutura Ponto inicializada
-     * pré-condição: vetores inicializados
-     * pós-condição: Estrutura ponto alocada
+     * @param {char*}id string de identificação do Ponto
+     * @param {double*}coord vetor de coordenada do Ponto
+     * @param {int}indice chave de identificação do Ponto
+     * @return estrutura Ponto inicializada
+     * @pre vetores inicializados
+     * @post Estrutura ponto alocada
     **/
-    Ponto* initPonto(char *id, double *coords, int pos);
+    Ponto* initPonto(char *id, double *coords, int indice);
+
 
     /**
-     * Calcula a distância entre dois pontos
-     * input: um inteiro e dois pontos
-     * output: double referente a distância
-     * pré-condição: pontos alocados
-     * pós-condição: nada
+     * Calcula a distância entre dois pontos.
+     * @param {Ponto*}p1  1º Ponto
+     * @param {Ponto*}p2  2º Ponto
+     * @param {int}m  dimensão do ponto
+     * @return distância entre pontos
+     * @pre pontos alocados
+     * @post nada
     **/
     double calculaDistanciaEntrePontos(Ponto *p1, Ponto *p2, int m);
 
@@ -30,14 +35,23 @@
      * pré-condição: ponto alocado
      * pós-condição: nada
     **/
-    int getPos(Ponto* p);
 
     /**
+     * Retorna o indice do ponto na pilha
+     * @param {Ponto*}p 
+     * @return posição do ponto (ordem que foi adicionado a pilha)
+     * @pre ponto alocado
+     * @post nada
+    **/
+    int getPos(Ponto* p);
+
+    /**  
      * Libera memória alocada por ponto
-     * input: Ponto*
-     * output: void
-     * pré-condição: ponto alocado
-     * pós-condição: memória liberada
-    **/   
+     * @param {Ponto*}p
+     * @return nada
+     * @pre Ponto alocado
+     * @post memória do Ponto liberada
+    **/
     void liberaPonto(Ponto* p);
+
 #endif //TRAB1_ED2_2021_PONTO_H

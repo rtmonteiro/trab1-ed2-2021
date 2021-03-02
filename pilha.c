@@ -12,13 +12,13 @@ struct celula {
 
 struct pilha {
     int qtd;
-    int coord;
+    int dimensao;
     Cel* pontos;
 };
 
 Pilha* initPilha(void) {
     Pilha* pilha = (Pilha*) malloc (sizeof(Pilha));
-    pilha->qtd = pilha->coord = 0;
+    pilha->qtd = pilha->dimensao = 0;
     pilha->pontos = NULL;
     return pilha;
 }
@@ -65,7 +65,7 @@ Distancia** distanciasPilha (Pilha* pilha) {
     for(Cel* ponto1 = pilha->pontos; ponto1 != NULL ; ponto1=ponto1->prox) {
         for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox, i++) {
             // Calcula a distancia entre ponto1 e ponto2 e armazena num vetor
-            dist[i] = initDistancia(ponto1->ponto, ponto2->ponto, pilha->coord);
+            dist[i] = initDistancia(ponto1->ponto, ponto2->ponto, pilha->dimensao);
         }
     }
 
@@ -76,8 +76,8 @@ int getQtd(Pilha* pilha) {
     return pilha->qtd;
 }
 
-int getCoord(Pilha* pilha) {
-    return pilha->coord;
+int getDimensao(Pilha* pilha) {
+    return pilha->dimensao;
 }
 
 static void liberaPontos (Cel* cel) {

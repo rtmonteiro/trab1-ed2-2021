@@ -3,27 +3,22 @@
 #include "ponto.h"
 
 struct ponto {
-    int pos;
-    char *id;
-    double *coords;
+    int indice; // indice do ponto na pilha
+    char *id; // id do ponto
+    double *coords; // coordenadas do ponto
 };
 
-Ponto* initPonto(char *id, double *coords, int pos){
+
+Ponto* initPonto(char *id, double *coords, int indice){
     Ponto* new = (Ponto*) malloc(sizeof(Ponto));
     new->id = id;
-    new->pos = pos;
+    new->indice = indice;
     new->coords = coords;
 
     return new;
 }
 
-/**
- * @param p1
- * @param p2
- * @param m
- * @example https://en.wikipedia.org/wiki/Euclidean_distance
- * @return distancia entre pontos em Rm
- */
+
 double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
     double sum;
     for (int i = 0; i < m; ++i) {
@@ -32,18 +27,12 @@ double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
     return sqrt(sum);
 }
 
-/**
- * @param p
- * @return retorna a posicao do ponto (ordem que foi adicionado a pilha)
- */
-int getPos(Ponto* p) {
-    return p->id;
+
+int getIndice(Ponto* p) {
+    return p->indice;
 }
 
-/**
- * @param p
- * @return retorna a posicao do ponto (ordem que foi adicionado a pilha)
- */
+
 void liberaPonto(Ponto* p) {
     free(p->id);
     free(p->coords);
