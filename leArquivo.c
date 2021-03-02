@@ -53,7 +53,7 @@ Pilha *leArquivo(FILE *fp, Pilha *p) {
     size_t line_buf_size = 0;
     int line_count = 0;
 
-    int m = 0, n = 1;
+    int m = 0;
     double *coords = NULL;
 
     /* Get the first line of the file. */
@@ -76,6 +76,7 @@ Pilha *leArquivo(FILE *fp, Pilha *p) {
 
     Ponto* novoPonto = initPonto(idPonto, coords, 0);
     push(p, novoPonto);
+    setDimensao(p, m);
 
     getline(&line_buf, &line_buf_size, fp);
 

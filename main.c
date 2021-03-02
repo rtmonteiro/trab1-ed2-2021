@@ -20,6 +20,7 @@ int main(int argc, char** argv ) {
     Pilha *pilhaPontos = initPilha();
     pilhaPontos = leArquivo(fp, pilhaPontos);
 
+    Distancia **vetorDistancias = distanciasPilha(pilhaPontos);
 
     liberaPilha(pilhaPontos);
 
