@@ -35,8 +35,9 @@
      * @pre ponto alocado
      * @post nada
     **/
-    int getPos(Ponto* p);
+    int getIndice(Ponto* p);
 
+    char* getIdPonto(Ponto* p);
     /**  
      * Libera memória alocada por ponto
      * @param {Ponto*}p
