@@ -32,6 +32,9 @@ int getIndice(Ponto* p) {
     return p->indice;
 }
 
+char* getIdPonto(Ponto* p) {
+    return p->id;
+}
 
 void liberaPonto(Ponto* p) {
     free(p->id);
