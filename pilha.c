@@ -63,7 +63,6 @@ Ponto* pop(Pilha* pilha) {
 Distancia** distanciasPilha (Pilha* pilha) {
     Distancia** dist = initVetDistancia(pilha->qtd);
     int i = 0;
-    int sizeoDistancia = sizeOfDistancia();
 
     // Percore pilha de forma que ponto1 é sempre diferente de ponto2 
     // ponto2 eh o ponto apos ponto1
