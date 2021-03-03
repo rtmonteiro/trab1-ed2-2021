@@ -14,9 +14,24 @@ size_t sizeOfDistancia() {
     return sizeof(Distancia);
 }
 
+void print(Distancia** vet, int n){
+    // int tam = ((n-1) * n)/2;
+    
+    for (int i = 0; i < n; i++)
+    {
+        printf("%lf ", vet[i]->dist);
+    }
+    printf("\n");
+}
+
 void ordenaVetDistancia(Distancia** vetDist, int n){
     int tam = ((n-1) * n)/2;
-    qsort(vetDist, tam, sizeof(Distancia), comparaDistancia);
+    size_t size = sizeof(vetDist)/sizeof(Distancia*);
+    print(vetDist, tam);
+    printf("\n");
+    qsort(vetDist, tam, sizeof(Distancia*), comparaDistancia);
+
+    print(vetDist, tam);
 }
 
 Distancia** initVetDistancia(int n){
@@ -39,9 +54,10 @@ Distancia* initDistancia(Ponto* p1, Ponto* p2, int m){
 }
 
 int comparaDistancia(const void* d1, const void* d2){
-    double pri = ((Distancia*) d1)->dist;
-    double seg = ((Distancia*) d2)->dist;
-    return (pri - seg);
+    Distancia* pri = (Distancia*) d1;
+    Distancia* seg = (Distancia*) d2;
+    // return (pri->dist - seg->dist);
+    return (pri->dist > seg->dist) - (pri->dist < seg->dist);
 }
 
 void liberaDistancia(Distancia** vetDistancia, int n){
@@ -53,3 +69,5 @@ void liberaDistancia(Distancia** vetDistancia, int n){
     }
     free(vetDistancia);
 }
+
+
