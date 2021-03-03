@@ -2,6 +2,7 @@
     #define DIST_H
 
     #include "ponto.h"
+    #include "uf.h"
 
     // Retorna dist
     // inializa vetor -> tam = n(n-1)/2
@@ -11,7 +12,6 @@
     // define o tipo opaco Distancia
     typedef struct distancia Distancia;
 
-    size_t sizeOfDistancia();
     void ordenaVetDistancia(Distancia** vetDist, int n);
 
     /**
@@ -41,6 +41,8 @@
      * pós-condição: nada
     **/
     int comparaDistancia(const void* d1, const void* d2);
+
+    void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k);
 
     /**
      * Libera a memória alocada pelo vetor distancia
