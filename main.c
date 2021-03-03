@@ -18,19 +18,24 @@ int main(int argc, char** argv ) {
     }
 
     int k = atoi(argv[1]);
+    
     Pilha *pilhaPontos = initPilha();
     pilhaPontos = leArquivo(fp, pilhaPontos);
 
     Distancia **vetorDistancias = distanciasPilha(pilhaPontos);
+
     int tam = getQtd(pilhaPontos);
     int tamPA = tam * (tam - 1) / 2;
+
     UF* unionFind = initUnionFind(tam);
     mostraUnionFind(unionFind);
     agrupaCaminhos(unionFind, vetorDistancias, tam, tamPA, k);
     mostraUnionFind(unionFind);
+
     liberaPilha(pilhaPontos);
     liberaDistancia(vetorDistancias, tam);
     liberaUnionFind(unionFind);
+
     printf("IUPI!");
     return EXIT_SUCCESS;
 }
