@@ -9,12 +9,12 @@ EXECUTABLE	:= trab1
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 
-ARGS0 := ./in-exemplos/0.txt 3
-ARGS1 := ./in-exemplos/1.txt 2
-ARGS2 := ./in-exemplos/2.txt 4
-ARGS3 := ./in-exemplos/3.txt 5
-ARGS4 := ./in-exemplos/4.txt 5
-ARGS5 := ./in-exemplos/5.txt 10
+ARGS0 := 3 ./in-exemplos/0.txt 
+ARGS1 := 2 ./in-exemplos/1.txt
+ARGS2 := 4 ./in-exemplos/2.txt
+ARGS3 := 5 ./in-exemplos/3.txt
+ARGS4 := 5 ./in-exemplos/4.txt
+ARGS5 := 10 ./in-exemplos/5.txt
 SAIDA := saida.txt
 
 VALGRIND	:= 
