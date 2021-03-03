@@ -9,7 +9,7 @@ struct uf {
     int N;
 };
 
-UF* unionFindInit(int N) {
+UF* initUnionFind(int N) {
     UF *id = (UF*) malloc (sizeof(UF));
     id->N = N;
     
@@ -55,7 +55,8 @@ int find(UF* id, int p, int q) {
 void criaUniao(UF* id, int p, int q) {
     int i = getRaiz(id, p);
     int j = getRaiz(id, q);
-
+    printf("\nindices| %d - %d |\n", i, j);
+    printf("alturas| %d - %d |\n\n", getAltura(id, i), getAltura(id, j));
     if (getAltura(id, p) < getAltura(id, q)) {
         setID(id, i, j);
         aumentaAlturas(id, j, i);

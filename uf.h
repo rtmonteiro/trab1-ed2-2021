@@ -11,7 +11,7 @@
      * @pre nada.
      * @post estrutura UF alocada.
     **/
-    UF* unionFindInit(int N);
+    UF* initUnionFind(int N);
 
     /**
      * Retorna o valor armazenado no índice i. 
