@@ -39,9 +39,12 @@ Distancia* initDistancia(Ponto* p1, Ponto* p2, int m){
 }
 
 int comparaDistancia(const void* d1, const void* d2){
-    double pri = ((Distancia*) d1)->dist;
-    double seg = ((Distancia*) d2)->dist;
-    return (pri - seg);
+    const Distancia pri = *(const Distancia*) d1;
+    const Distancia seg = *(const Distancia*) d2;
+
+    if(pri.dist > seg.dist)
+        return 1;
+    return -1;
 }
 
 void liberaDistancia(Distancia** vetDistancia, int n){
