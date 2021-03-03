@@ -29,7 +29,8 @@ int main(int argc, char** argv ) {
     agrupaCaminhos(unionFind, vetorDistancias, tam, tamPA, k);
     mostraUnionFind(unionFind);
     liberaPilha(pilhaPontos);
-
+    liberaDistancia(vetorDistancias, tam);
+    liberaUnionFind(unionFind);
     printf("IUPI!");
     return EXIT_SUCCESS;
 }

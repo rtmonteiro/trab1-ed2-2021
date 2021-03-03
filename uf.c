@@ -85,5 +85,6 @@ void mostraUnionFind(UF* id) {
 
 void liberaUnionFind(UF* id) {
     free(id->id);
+    free(id->alturas);
     free(id);
 }
