@@ -20,8 +20,8 @@ Ponto* initPonto(char *id, double *coords, int indice){
 
 
 double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
-    double sum;
-    for (int i = 0; i < m; ++i) {
+    double sum = 0;
+    for (int i = 0; i < m; i++) {
         sum += pow((p1->coords[i] - p2->coords[i]), 2);
     }
     return sqrt(sum);
