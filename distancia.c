@@ -52,8 +52,8 @@ int comparaDistancia(const void* d1, const void* d2) {
 static int agrupaCaminhoPontos (UF* uf, Distancia* distancia, int n) {
     int id1 = getIndice(distancia->p1);
     int id2 = getIndice(distancia->p2);
-    if(!find(uf, id1, id2)) {
-        printf("\nPontos: %s e %s\n", getIdPonto(distancia->p1), getIdPonto(distancia->p2));
+    if(!conectado(uf, id1, id2)) {
+        //printf("\nPontos: %s e %s\n", getIdPonto(distancia->p1), getIdPonto(distancia->p2));
         criaUniao(uf, id1, id2);
         return 1;
     }

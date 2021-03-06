@@ -41,22 +41,29 @@ void aumentaAlturas(UF* id, int i, int j) {
 }
 
 int getRaiz(UF *id, int i) {
-    while (getID(id, i) != i)  {
-        i = getID(id, i);
+    int raiz = i;
+    while (raiz != getID(id, raiz)) {
+        raiz = getID(id, raiz);
+    }
+    while (i != raiz)  {
+        int prox = getID(id, i);
+        setID(id, i, raiz);
+        i = prox;
     }
 
-    return i;
+    return raiz;
 }
 
-int find(UF* id, int p, int q) {
-    return getRaiz(id, p) == getRaiz(id, q);   
+int conectado(UF* id, int p, int q) {
+    return getRaiz(id, p) == getRaiz(id, q);
 }
 
 void criaUniao(UF* id, int p, int q) {
     int i = getRaiz(id, p);
     int j = getRaiz(id, q);
-    printf("\nindices| %d - %d |\n", i, j);
-    printf("alturas| %d - %d |\n\n", getAltura(id, i), getAltura(id, j));
+    if (i == j) return;
+    //printf("\nindices| %d - %d |\n", i, j);
+    //printf("alturas| %d - %d |\n\n", getAltura(id, i), getAltura(id, j));
     if (getAltura(id, p) < getAltura(id, q)) {
         setID(id, i, j);
         aumentaAlturas(id, j, i);
@@ -68,7 +75,7 @@ void criaUniao(UF* id, int p, int q) {
 
 int todosObjetosConectados(UF* id) {
     for (int i = 0; i < id->N - 1; i++) {
-        if (getRaiz(id, i) != getRaiz(id, i+1)) 
+        if (!conectado(id, i, i+1))
             return 0;
     }
 
