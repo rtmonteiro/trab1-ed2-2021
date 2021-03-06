@@ -13,17 +13,10 @@ int main(int argc, char** argv ) {
     char *FILENAMEINPUT = argv[1];
     char *FILENAMEOUTPUT = argv[3];
 
-    FILE *fp = fopen(FILENAMEINPUT, "r");
-    if (!fp) {
-        fprintf(stderr, "Erro ao abrir arquivo '%s'\n", FILENAMEINPUT);
-        exit(1);
-    }
-
     int k = (int) strtod(argv[2], NULL);
     
     Pilha *pilhaPontos = initPilha();
-    pilhaPontos = leArquivo(fp, pilhaPontos);
-    fclose(fp);
+    pilhaPontos = leArquivo(FILENAMEINPUT, pilhaPontos);
 
     Distancia **vetorDistancias = distanciasPilha(pilhaPontos);
 
@@ -31,11 +24,13 @@ int main(int argc, char** argv ) {
     int tamPA = tam * (tam - 1) / 2;
 
     UF* unionFind = initUnionFind(tam);
-    mostraUnionFind(unionFind);
+    //mostraUnionFind(unionFind);
     agrupaCaminhos(unionFind, vetorDistancias, tam, tamPA, k);
-    mostraUnionFind(unionFind);
+    //mostraUnionFind(unionFind);
 
+    //region Apresenta Grupos
 
+    //endregion
 
     //region Libera
     liberaPilha(pilhaPontos);
@@ -43,6 +38,6 @@ int main(int argc, char** argv ) {
     liberaUnionFind(unionFind);
     //endregion
 
-    printf("IUPI!");
+    //printf("IUPI!");
     return EXIT_SUCCESS;
 }

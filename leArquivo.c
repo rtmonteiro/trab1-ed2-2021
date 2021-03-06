@@ -8,66 +8,97 @@
 
 #define TAM 10
 
-Pilha *leArquivo(FILE *fp, Pilha *p) {
-    /* Open the file for reading */
+
+static int leM(FILE *fp, Pilha *p) {
+
+    //le a primeira linha e retorna m
+    char *line_buf = NULL;
+    size_t line_buf_size = 0;
+
+    int m = 0;
+
+    getline(&line_buf, &line_buf_size, fp);
+
+    char *token = strtok(line_buf, ","); /* pega o id do  */
+
+    while (token) {
+        token = strtok(NULL, ",");
+        if (token) m++; /* Ao ler uma nova coordenada, atualiza a dimensão dos pontos */
+    }
+
+    free(line_buf);
+
+    return m;
+}
+
+static int leN(FILE *fp, Pilha *p) {
+    //le o resto do arquivo e retorna n
     char *line_buf = NULL;
     size_t line_buf_size = 0;
     int line_count = 0;
 
-    int m = 0;
-    double *coords = NULL;
-
-    /* Get the first line of the file. */
-    getline(&line_buf, &line_buf_size, fp);
-
-    char *token = strtok(line_buf, ","); /* pega o id do  */
-    char *idPonto = strdup(token);
-
-    while (token) {
-        token = strtok(NULL, ",");
-        if (token) {
-            if (m % 10 == 0){
-                coords = (double *) realloc(coords, sizeof(double) * (TAM + m));
-            }
-
-            coords[m] = strtod(token, NULL);
-            m++; /* Ao ler uma nova coordenada, atualiza a dimensão dos pontos */
-        }
+    while (!feof(fp)) {
+        line_count++;
+        getline(&line_buf, &line_buf_size, fp);
     }
 
-    Ponto* novoPonto = initPonto(idPonto, coords, 0);
-    push(p, novoPonto);
-    setDimensao(p, m);
+    free(line_buf);
 
-    getline(&line_buf, &line_buf_size, fp);
+    return line_count;
+}
+
+Pilha *leArquivo(char *FILENAMEINPUT, Pilha *p) {
+    FILE *fp = fopen(FILENAMEINPUT, "r");
+    if (!fp) {
+        fprintf(stderr, "Erro ao abrir arquivo '%s'\n", FILENAMEINPUT);
+        exit(1);
+    }
+
+    int m = leM(fp, p);
+    int n = leN(fp, p);
+
+    fclose(fp);
+
+    //le o arquivo de novo e retorna a pilha (vetor) com os pontos
+
+
+    fp = fopen(FILENAMEINPUT, "r");
+    if (!fp) {
+        fprintf(stderr, "Erro ao abrir arquivo '%s'\n", FILENAMEINPUT);
+        exit(1);
+    }
+
+    /* Open the file for reading */
+    char *line_buf = NULL;
+    size_t line_buf_size = 0;
+
+    setDimensao(p, m);
+    setQuantidade(p, n);
 
     /* Loop through until we are done with the file. */
-    while (!feof(fp)) {
-        /* Increment our line count */
-        line_count++;
+    for (int i = 0; i < n; ++i) {
+        getline(&line_buf, &line_buf_size, fp);
 
         /* Show the line details */
         // printf("line[%06d]: contents: %s", line_count, line_buf);
-        token = NULL;
-        token = strtok(line_buf, ",");
-        idPonto = strdup(token);
+        char *token = strtok(line_buf, ",");
+        char *idPonto = strdup(token);
 
-        coords = (double*) malloc(sizeof(double) * m);
-        for (int i = 0; i < m; ++i) {
+        double *coords = (double *) malloc(sizeof(double) * m);
+        for (int j = 0; j < m; ++j) {
             token = strtok(NULL, ",");
-            coords[i] = strtod(token, NULL);
+            coords[j] = strtod(token, NULL);
         }
 
-        novoPonto = initPonto(idPonto, coords, line_count);
+        Ponto *novoPonto = initPonto(idPonto, coords, i);
         push(p, novoPonto);
-
-        /* Get the next line */
-        getline(&line_buf, &line_buf_size, fp);
     }
 
     /* Free the allocated line buffer */
     free(line_buf);
     line_buf = NULL;
+
+    fclose(fp);
 
     return p;
 }

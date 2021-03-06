@@ -71,8 +71,18 @@
     * @post dimensao modificada
     **/ 
     void setDimensao(Pilha* pilha, int m);
-    
-    /** 
+
+    /**
+    * Modifica a quantidade de coordenadas dos pontos da pilha
+    * @param {Pilha*}pilha
+    * @param {int}m quantidade de pontos
+    * @return int dimensão dos pontos da pilha
+    * @pre pilha inicializada e não vazia
+    * @post dimensao modificada
+    **/
+    void setQuantidade(Pilha *p, int n);
+
+    /**
     * Libera memoria alocada pela pilha
     * @param {Pilha*}pilha
     * @return nada

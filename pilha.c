@@ -41,7 +41,6 @@ void push(Pilha* pilha, Ponto* ponto) {
     }
 
     pilha->pontos = aux;
-    pilha->qtd++;
 }
 
 
@@ -91,6 +90,10 @@ int getDimensao(Pilha* pilha) {
 
 void setDimensao(Pilha* pilha, int m) {
     pilha->dimensao = m;
+}
+
+void setQuantidade(Pilha *p, int n) {
+    p->qtd = n;
 }
 
 

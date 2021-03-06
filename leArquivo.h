@@ -7,10 +7,6 @@
 
 #include "pilha.h"
 
-FILE *iniciaLeitura(char * nomeDoArquivo);
-
-Pilha *lePrimeiroPonto(FILE* fp, Pilha *p);
-
-Pilha *leArquivo(FILE *fp, Pilha *p);
+Pilha *leArquivo(char *FILENAME, Pilha *p);
 
 #endif //TRAB1_ED2_2021_LEARQUIVO_H
