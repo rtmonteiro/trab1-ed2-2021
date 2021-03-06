@@ -85,7 +85,7 @@
      * @pre estrutura UF existe
      * @post estrutura UF é modificada
     **/
-    void criaUniao(UF* id, int p, int q);
+    int criaUniao(UF* id, int p, int q);
 
     /**
      * Verifica se todos objetos estão conectados

@@ -11,8 +11,8 @@ INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 
 ARGS0 := ./in-exemplos/0.txt 3
 ARGS1 := ./in-exemplos/1.txt 2
-ARGS3 := ./in-exemplos/3.txt 5
 ARGS2 := ./in-exemplos/2.txt 4
+ARGS3 := ./in-exemplos/3.txt 5
 ARGS4 := ./in-exemplos/4.txt 5
 ARGS5 := ./in-exemplos/5.txt 10
 SAIDA := saida.txt

@@ -58,10 +58,11 @@ int conectado(UF* id, int p, int q) {
     return getRaiz(id, p) == getRaiz(id, q);
 }
 
-void criaUniao(UF* id, int p, int q) {
+int criaUniao(UF* id, int p, int q) {
     int i = getRaiz(id, p);
     int j = getRaiz(id, q);
-    if (i == j) return;
+    //printf("\nPontos: %s e %s\n", getIdPonto(distancia->p1), getIdPonto(distancia->p2));
+    if (i == j) return 0;
     //printf("\nindices| %d - %d |\n", i, j);
     //printf("alturas| %d - %d |\n\n", getAltura(id, i), getAltura(id, j));
     if (getAltura(id, p) < getAltura(id, q)) {
@@ -71,6 +72,7 @@ void criaUniao(UF* id, int p, int q) {
         setID(id, j, i);
         aumentaAlturas(id, i, j);
     }
+    return 1;
 }
 
 int todosObjetosConectados(UF* id) {
