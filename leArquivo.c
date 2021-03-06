@@ -8,45 +8,6 @@
 
 #define TAM 10
 
-FILE *iniciaLeitura(char * nomeDoArquivo) {
-    FILE *fp = fopen(nomeDoArquivo, "r");
-    if (!fp) {
-        fprintf(stderr, "Error opening file '%s'\n", nomeDoArquivo);
-        return EXIT_FAILURE;
-    }
-    return fp;
-}
-
-Pilha *lePrimeiroPonto(FILE *fp, Pilha *p) {
-    char *line_buf = NULL;
-    size_t line_buf_size = 0;
-
-    double *coord = NULL;
-    int m = 0;
-
-    /* Get the first line of the file. */
-    getline(&line_buf, &line_buf_size, fp);
-
-
-    char *token = strtok(line_buf, ","); /* pega o id do ponto*/
-    char *idPonto = strdup(line_buf);
-
-    while (token) {
-        token = strtok(NULL, ",");
-        if (token) {
-            if (m % 10 == 0){
-                coord = (double *) realloc(coord, sizeof(double) * (TAM + m));
-            }
-
-            m++; /* Ao ler uma nova coordenada, atualiza a dimensão dos pontos */
-            coord[m] = strtod(token, NULL);
-        }
-    }
-
-    Ponto* novoPonto = initPonto(idPonto, coord, 0);
-    push(p, novoPonto);
-}
-
 Pilha *leArquivo(FILE *fp, Pilha *p) {
     /* Open the file for reading */
     char *line_buf = NULL;
@@ -107,9 +68,6 @@ Pilha *leArquivo(FILE *fp, Pilha *p) {
     /* Free the allocated line buffer */
     free(line_buf);
     line_buf = NULL;
-
-    /* Close the file now that we are done with it */
-    fclose(fp);
 
     return p;
 }

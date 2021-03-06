@@ -14,7 +14,7 @@
      * @pre nada
      * @post pilha alocada
     **/ 
-    Pilha* initPilha (void);
+    Pilha* initPilha ();
 
     /**
     * Coloca ponto como o ultimo elemento da pilha

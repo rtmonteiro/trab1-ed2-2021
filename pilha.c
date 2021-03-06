@@ -17,7 +17,7 @@ struct pilha {
 };
 
 
-Pilha* initPilha(void) {
+Pilha* initPilha() {
     Pilha* pilha = (Pilha*) malloc (sizeof(Pilha));
     pilha->qtd = pilha->dimensao = 0;
     pilha->pontos = NULL;

@@ -11,7 +11,7 @@ struct distancia {
 
 void print(Distancia** vet, int n) {
     // int tam = ((n-1) * n)/2;
-    
+
     for (int i = 0; i < n; i++)
     {
         printf("%lf ", vet[i]->dist);
@@ -64,7 +64,7 @@ static int agrupaCaminhoPontos (UF* uf, Distancia* distancia, int n) {
 void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k) {
     int caminhos = 0;
     for (int i = 0; i < tamPA - 1 && caminhos < n - k; i++) {
-            caminhos += agrupaCaminhoPontos(uf, vetDistancia[i], i);
+        caminhos += agrupaCaminhoPontos(uf, vetDistancia[i], i);
     }
 }
 
@@ -77,5 +77,3 @@ void liberaDistancia(Distancia** vetDistancia, int n) {
 
     free(vetDistancia);
 }
-
-
