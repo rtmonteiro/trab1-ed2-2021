@@ -9,15 +9,16 @@
 
 int main(int argc, char** argv ) {
 
-    char *FILENAME = argv[2];
+    char *FILENAMEINPUT = argv[1];
+    char *FILENAMEOUTPUT = argv[3];
 
-    FILE *fp = fopen(FILENAME, "r");
+    FILE *fp = fopen(FILENAMEINPUT, "r");
     if (!fp) {
-        fprintf(stderr, "Error opening file '%s'\n", FILENAME);
+        fprintf(stderr, "Error opening file '%s'\n", FILENAMEINPUT);
         exit(1);
     }
 
-    int k = atoi(argv[1]);
+    int k = atoi(argv[2]);
     
     Pilha *pilhaPontos = initPilha();
     pilhaPontos = leArquivo(fp, pilhaPontos);
