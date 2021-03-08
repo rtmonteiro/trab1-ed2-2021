@@ -4,3 +4,11 @@
 3.txt: 4,688 bytes allocated
 4.txt: 4,928 bytes allocated
 5.txt: 4,928 bytes allocated
+
+Com lista:
+0.txt: ==15146==   total heap usage: 93 allocs, 93 frees, 6,892 bytes allocated
+1.txt: ==15165==   total heap usage: 1,434 allocs, 1,434 frees, 57,881 bytes allocated
+2.txt: ==15170==   total heap usage: 5,359 allocs, 5,359 frees, 211,822 bytes allocated
+3.txt: ==16573==   total heap usage: 503,509 allocs, 503,509 frees, 20,066,313 bytes allocated
+4.txt: ==16593==   total heap usage: 3,133,760 allocs, 3,133,760 frees, 125,218,782 bytes allocated
+5.txt: ==16670==   total heap usage: 12,517,510 allocs, 12,517,510 frees, 500,632,686 bytes allocated
