@@ -51,22 +51,22 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(CINCLUDES) $^ -o $@ $(LIBRARIES) -lm
 
 val0: 
-	valgrind ./$(EXECUTABLE) $(ARGS0)
+	valgrind ./$(EXECUTABLE) $(ARGS0) $(SAIDA)
 
 val1: 
-	valgrind ./$(EXECUTABLE) $(ARGS1)
+	valgrind ./$(EXECUTABLE) $(ARGS1) $(SAIDA)
 
 val2: 
-	valgrind ./$(EXECUTABLE) $(ARGS2)
+	valgrind ./$(EXECUTABLE) $(ARGS2) $(SAIDA)
 
 val3: 
-	valgrind ./$(EXECUTABLE) $(ARGS3)
+	valgrind ./$(EXECUTABLE) $(ARGS3) $(SAIDA)
 	
 val4: 
-	valgrind ./$(EXECUTABLE) $(ARGS4)
+	valgrind ./$(EXECUTABLE) $(ARGS4) $(SAIDA)
 
 val5: 
-	valgrind ./$(EXECUTABLE) $(ARGS5)
+	valgrind ./$(EXECUTABLE) $(ARGS5) $(SAIDA)
 	
 full: 
 	- valgrind -v --leak-check=full ./$(EXECUTABLE) $(N)
