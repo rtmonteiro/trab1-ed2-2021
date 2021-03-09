@@ -29,10 +29,10 @@ int main(int argc, char** argv ) {
     int tam = getQtd(plano);
     int tamDist = tam * (tam - 1) / 2;
 
-    UF* unionFind = initUnionFind(tam);
-    mostraUnionFind(unionFind);
-    agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
-    mostraUnionFind(unionFind);
+    UF* unionFind = initUnionFind(getPontos(plano), tam);
+    // mostraUnionFind(unionFind);
+    // agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
+    // mostraUnionFind(unionFind);
 
 
 
