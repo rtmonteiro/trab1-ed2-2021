@@ -29,13 +29,23 @@
     double calculaDistanciaEntrePontos(Ponto *p1, Ponto *p2, int m);
 
     /**
-     * Retorna o indice do ponto na pilha
+     * Modifica a raiz do ponto
      * @param {Ponto*}p 
-     * @return posição do ponto (ordem que foi adicionado a pilha)
+     * @param {int}raiz 
+     * @return nada
+     * @pre ponto alocado
+     * @post raiz do ponto modificada
+    **/
+    void setRaizPonto(Ponto* p, int raiz);
+
+    /**
+     * Retorna a raiz do ponto
+     * @param {Ponto*}p 
+     * @return raiz do ponto (a quem está ligado)
      * @pre ponto alocado
      * @post nada
     **/
-    int getIndice(Ponto* p);
+    int getRaizPonto(Ponto* p);
 
     char* getIdPonto(Ponto* p);
     /**  

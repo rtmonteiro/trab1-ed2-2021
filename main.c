@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ponto.h"
-#include "pilha.h"
+#include "planoR.h"
 #include "distancia.h"
 #include "leArquivo.h"
 #include "uf.h"
@@ -13,31 +13,35 @@ int main(int argc, char** argv ) {
     char *FILENAMEINPUT = argv[1];
     char *FILENAMEOUTPUT = argv[3];
 
+    FILE *fp = fopen(FILENAMEINPUT, "r");
+    if (!fp) {
+        fprintf(stderr, "Erro ao abrir arquivo '%s'\n", FILENAMEINPUT);
+        exit(1);
+    }
+
     int k = (int) strtod(argv[2], NULL);
     
-    Pilha *pilhaPontos = initPilha();
-    pilhaPontos = leArquivo(FILENAMEINPUT, pilhaPontos);
+    PlanoR *plano = initPlanoRVazio();
+    plano = leArquivo(FILENAMEINPUT, plano);
 
-    Distancia **vetorDistancias = distanciasPilha(pilhaPontos);
+    Distancia **vetorDistancias = distanciasPontos(plano);
 
-    int tam = getQtd(pilhaPontos);
-    int tamPA = tam * (tam - 1) / 2;
+    int tam = getQtd(plano);
+    int tamDist = tam * (tam - 1) / 2;
 
     UF* unionFind = initUnionFind(tam);
-    //mostraUnionFind(unionFind);
-    agrupaCaminhos(unionFind, vetorDistancias, tam, tamPA, k);
-    //mostraUnionFind(unionFind);
+    mostraUnionFind(unionFind);
+    agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
+    mostraUnionFind(unionFind);
 
-    //region Apresenta Grupos
 
-    //endregion
 
     //region Libera
-    liberaPilha(pilhaPontos);
+    liberaPlano(plano);
     liberaDistancia(vetorDistancias, tam);
     liberaUnionFind(unionFind);
     //endregion
 
-    //printf("IUPI!");
+    printf("IUPI!");
     return EXIT_SUCCESS;
 }

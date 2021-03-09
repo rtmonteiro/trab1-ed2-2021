@@ -50,8 +50,8 @@ int comparaDistancia(const void* d1, const void* d2) {
 }
 
 static int agrupaCaminhoPontos (UF* uf, Distancia* distancia, int n) {
-    int id1 = getIndice(distancia->p1);
-    int id2 = getIndice(distancia->p2);
+    int id1 = getRaizPonto(distancia->p1);
+    int id2 = getRaizPonto(distancia->p2);
     return criaUniao(uf, id1, id2);
 }
 

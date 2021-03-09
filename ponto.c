@@ -3,16 +3,16 @@
 #include "ponto.h"
 
 struct ponto {
-    int indice; // indice do ponto na pilha
+    int raiz; // raiz do ponto na pilha
     char *id; // id do ponto
     double *coords; // coordenadas do ponto
 };
 
 
-Ponto* initPonto(char *id, double *coords, int indice){
+Ponto* initPonto(char *id, double *coords, int raiz){
     Ponto* new = (Ponto*) malloc(sizeof(Ponto));
     new->id = id;
-    new->indice = indice;
+    new->raiz = raiz;
     new->coords = coords;
 
     return new;
@@ -27,9 +27,12 @@ double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
     return sqrt(sum);
 }
 
+void setRaizPonto(Ponto* p, int raiz) {
+    p->raiz = raiz;
+}
 
-int getIndice(Ponto* p) {
-    return p->indice;
+int getRaizPonto(Ponto* p) {
+    return p->raiz;
 }
 
 char* getIdPonto(Ponto* p) {
