@@ -47,6 +47,15 @@
     Distancia** distanciasPontos (PlanoR* plano);
 
     /** 
+    * Retorna vetor de pontos do plano
+    * @param {PlanoR*}plano
+    * @return vetor de pontos do plano
+    * @pre plano inicializada e não vazia
+    * @post nada
+    **/ 
+    Ponto* getPontos(PlanoR* plano);
+
+    /** 
     * Retorna quantidade de elementos na plano
     * @param {PlanoR*}plano
     * @return int quantidade de itens na planoR
