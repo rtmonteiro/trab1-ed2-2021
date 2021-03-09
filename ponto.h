@@ -47,7 +47,15 @@
     **/
     int getRaizPonto(Ponto* p);
 
+    /**
+     * Retorna o id do ponto
+     * @param {Ponto*}p 
+     * @return id do ponto
+     * @pre ponto alocado
+     * @post nada
+    **/
     char* getIdPonto(Ponto* p);
+
     /**  
      * Libera memória alocada por ponto
      * @param {Ponto*}p
