@@ -3,14 +3,15 @@
 #include "distancia.h"
 #include "planoR.h"
 
-// Define o tipo opaco PlanoR
+// Define o tipo opaco planoR
 struct planoR{
-    Ponto** pontos;
-    int dim;
-    int qtd;
+    Ponto** pontos; // vetor de pontos
+    int dim; // dimensao dos pontos
+    int qtd; // quantidade de pontos no vetor
 };
 
 PlanoR* initPlanoRVazio () {
+    // Plano vazio, com vetor de pontos = NULL
     PlanoR* novo = (PlanoR*) malloc (sizeof(PlanoR));
     novo->pontos = NULL; 
     novo->qtd = novo->qtd = 0;
@@ -31,7 +32,8 @@ void insere (PlanoR* plano, Ponto* ponto, int i) {
 Distancia** distanciasPontos (PlanoR* plano) {
     Distancia** dist = initVetDistancia(plano->qtd);
     int i = 0;
-    // Percore pilha de forma que ponto1 é sempre diferente de ponto2
+
+    // Percore vetor de forma que ponto1 eh sempre diferente de ponto2
     // ponto2 eh o ponto apos ponto1
     for(int ponto1 = 0; ponto1 < plano->qtd; ponto1++) {
         for (int ponto2 = ponto1 + 1; ponto2 < plano->qtd; ponto2++, i++) {
@@ -40,6 +42,7 @@ Distancia** distanciasPontos (PlanoR* plano) {
         }
     }
 
+    // chama funcao que ordena vetor de distancia
     ordenaVetDistancia(dist, plano->qtd);
 
     return dist;

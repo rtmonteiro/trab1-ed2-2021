@@ -29,11 +29,11 @@
     /**
     * Coloca ponto como o ultimo elemento do vetor de pontos do plano
     * @param {PlanoR*} plano
-    * @param {Ponto*} ponto que será inserido na planoR
-    * @param {int}i posição do vetor em que o ponto será adicionado
+    * @param {Ponto*} ponto que sera inserido na planoR
+    * @param {int}i posição do vetor em que o ponto sera adicionado
     * @return nada
     * @pre plano e ponto inicializados
-    * @post ponto é adicionado ao final do vetor de pontos do plano
+    * @post ponto eh adicionado ao final do vetor de pontos do plano
     **/ 
     void insere (PlanoR* plano, Ponto* ponto, int i);
 
@@ -41,7 +41,7 @@
     * Percorre a plano de forma que ponto1 != ponto2 e calcula distancias
     * @param {PlanoR*} plano
     * @return nada
-    * @pre plano inicializada e não vazia
+    * @pre plano inicializada e nao vazia
     * @post vetor com distancias entre os pontos existe
     **/ 
     Distancia** distanciasPontos (PlanoR* plano);
@@ -75,7 +75,7 @@
     void setQtd(PlanoR* plano, int N);
 
     /** 
-    * Retorna a dimensão de coordenadas dos pontos
+    * Retorna a dimensao de coordenadas dos pontos
     * @param {PlanoR*}plano
     * @return int dimensão dos pontos da plano
     * @pre plano inicializada e não vazia
