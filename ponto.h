@@ -4,7 +4,6 @@
     // define o tipo opaco Ponto
     typedef struct ponto Ponto;
 
-
     /**
      * Inicializa um ponto
      * @param {char*}id string de identificação do Ponto
@@ -16,7 +15,6 @@
     **/
     Ponto* initPonto(char *id, double *coords, int indice);
 
-
     /**
      * Calcula a distância entre dois pontos.
      * @param {Ponto*}p1  1º Ponto
@@ -27,6 +25,16 @@
      * @post nada
     **/
     double calculaDistanciaEntrePontos(Ponto *p1, Ponto *p2, int m);
+
+    /**
+     * Compara o id de dois pontos em relacao a lexicografia
+     * @param {Ponto*}p1
+     * @param {Ponto*}p2 
+     * @return int, 1 se p1 > p2, 0 se p1 == p2, -1 se p1 < p2
+     * @pre pontos alocados
+     * @post nada
+    **/
+    int comparaId(Ponto* p1, Ponto* p2);
 
     /**
      * Modifica a raiz do ponto
