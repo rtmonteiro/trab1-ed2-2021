@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ponto.h"
-#include "pilha.h"
+#include "planoR.h"
 #include "distancia.h"
 #include "leArquivo.h"
 #include "uf.h"
@@ -21,24 +21,24 @@ int main(int argc, char** argv ) {
 
     int k = (int) strtod(argv[2], NULL);
     
-    Pilha *pilhaPontos = initPilha();
-    pilhaPontos = leArquivo(fp, pilhaPontos);
+    PlanoR *plano = initPlanoRVazio();
+    plano = leArquivo(fp, plano);
     fclose(fp);
 
-    Distancia **vetorDistancias = distanciasPilha(pilhaPontos);
+    Distancia **vetorDistancias = distanciasPontos(plano);
 
-    int tam = getQtd(pilhaPontos);
-    int tamPA = tam * (tam - 1) / 2;
+    int tam = getQtd(plano);
+    int tamDist = tam * (tam - 1) / 2;
 
     UF* unionFind = initUnionFind(tam);
     mostraUnionFind(unionFind);
-    agrupaCaminhos(unionFind, vetorDistancias, tam, tamPA, k);
+    agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
     mostraUnionFind(unionFind);
 
 
 
     //region Libera
-    liberaPilha(pilhaPontos);
+    liberaPlano(plano);
     liberaDistancia(vetorDistancias, tam);
     liberaUnionFind(unionFind);
     //endregion
