@@ -2,22 +2,23 @@
 #include <stdlib.h>
 #include <time.h>
 #include "uf.h"
+#include "ponto.h"
 
 struct uf {
-    int *id;
-    int *alturas;
+    Ponto** id;
+    int* alturas;
     int N;
 };
 
-UF* initUnionFind(int N) {
+UF* initUnionFind(Ponto** pontos, int N)  {
     UF *id = (UF*) malloc (sizeof(UF));
     id->N = N;
     
-    id->id = (int*) malloc (sizeof(int) * N);
+    id->id = pontos;
     id->alturas = (int*) malloc (sizeof(int) * N);
 
     for (int i = 0; i < N; i++) {
-        id->id[i] = i;
+        setRaizPonto(id->id[i], i);
         id->alturas[i] = 1;
     }
 
@@ -25,11 +26,11 @@ UF* initUnionFind(int N) {
 }
 
 int getID(UF *id, int i) {
-    return id->id[i];
+    return getRaizPonto(id->id[i]);
 }
 
 void setID(UF* id, int i, int j) {
-    id->id[i] = j;
+    setRaizPonto(id->id[i], j);
 }
 
 int getAltura(UF* id, int i) {

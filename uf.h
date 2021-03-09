@@ -1,17 +1,19 @@
 #ifndef UF_H
     #define UF_H
-
+    #include "ponto.h"
+    
     typedef struct uf UF;
 
     /**
-     * Inicializa union-conectado.
+     * Inicializa union-find.
+     * @param {Ponto**}pontos - Vetor de pontos
      * @param {int}N - Tamanho de elementos.
      * @example https://algs4.cs.princeton.edu/15uf/
      * @return estrutura UF (union-conectado) inicializado.
      * @pre nada.
      * @post estrutura UF alocada.
     **/
-    UF* initUnionFind(int N);
+    UF* initUnionFind(Ponto** pontos, int N) ;
 
     /**
      * Retorna o valor armazenado no índice i. 
