@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "ponto.h"
 #include "distancia.h"
 #include "planoR.h"
@@ -9,13 +10,18 @@ struct planoR{
     int qtd;
 };
 
-PlanoR* initPlanoR (int N, int M) {
+PlanoR* initPlanoRVazio () {
     PlanoR* novo = (PlanoR*) malloc (sizeof(PlanoR));
-    novo->pontos = (Ponto**) malloc(sizeof(Ponto*) * N); 
-    novo->qtd = N;
-    novo->qtd = M;
+    novo->pontos = NULL; 
+    novo->qtd = novo->qtd = 0;
 
     return novo;
+}
+
+void initVetorPontos (PlanoR* plano, int N, int M) {
+    plano->pontos = (Ponto**) malloc (sizeof(Ponto*) * N);
+    plano->qtd = N;
+    plano->dim = M;
 }
 
 void insere (PlanoR* plano, Ponto* ponto, int i) {

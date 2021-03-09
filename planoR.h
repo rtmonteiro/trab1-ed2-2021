@@ -9,14 +9,22 @@
     typedef struct planoR PlanoR;
 
     /**
-     * Inicializa uma planoR vazia
+     * Inicializa uma plano vazio
+     * @return estrutura PlanoR vazia inicializada
+     * @pre nada
+     * @post plano alocado
+    **/ 
+    PlanoR* initPlanoRVazio ();
+
+    /**
+     * Inicializa vetor de pontos do plano
      * @param {int}N quantidade de pontos no plano
      * @param {int}M dimensao do plano
-     * @return estrutura PlanoR inicializada
-     * @pre nada
-     * @post plano alocada
+     * @return nada
+     * @pre estrutura PlanoR alocada
+     * @post vetor alocado
     **/ 
-    PlanoR* initPlanoR (int N, int M);
+    void initVetorPontos (PlanoR* plano, int N, int M);
 
     /**
     * Coloca ponto como o ultimo elemento do vetor de pontos do plano
