@@ -62,7 +62,7 @@ void setDimensao(PlanoR* plano, int M) {
     plano->dim = M;
 }
 
-void liberaPilha (PlanoR* plano) {
+void liberaPlano (PlanoR* plano) {
     for (int i = 0; i < plano->qtd; i++) {
         liberaPonto(plano->pontos[i]);
     }

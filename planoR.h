@@ -91,6 +91,6 @@
     * @pre planoR inicializada 
     * @post memoria alocada para pontos da planoR e a planoR eh liberada
     **/ 
-    void liberaPilha (PlanoR* plano);
+    void liberaPlano (PlanoR* plano);
 
 #endif
