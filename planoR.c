@@ -46,6 +46,10 @@ Distancia** distanciasPontos (PlanoR* plano) {
     return dist;
 }
 
+Ponto* getPontos(PlanoR* plano) {
+    return plano->pontos;
+}
+
 int getQtd(PlanoR* plano) {
     return plano->qtd;
 }
