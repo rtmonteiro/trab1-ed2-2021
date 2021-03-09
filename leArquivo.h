@@ -6,7 +6,8 @@
 #define TRAB1_ED2_2021_LEARQUIVO_H
 
 #include "pilha.h"
+#include "planoR.h"
 
-Pilha *leArquivo(char *FILENAME, Pilha *p);
+PlanoR *leArquivo(char *FILENAME, PlanoR *p);
 
 #endif //TRAB1_ED2_2021_LEARQUIVO_H

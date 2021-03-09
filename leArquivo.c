@@ -5,11 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "leArquivo.h"
+#include "planoR.h"
 
 #define TAM 10
 
 
-static int leM(FILE *fp, Pilha *p) {
+static int leM(FILE *fp, PlanoR *p) {
 
     //le a primeira linha e retorna m
     char *line_buf = NULL;
@@ -31,7 +32,7 @@ static int leM(FILE *fp, Pilha *p) {
     return m;
 }
 
-static int leN(FILE *fp, Pilha *p) {
+static int leN(FILE *fp, PlanoR *p) {
     //le o resto do arquivo e retorna n
     char *line_buf = NULL;
     size_t line_buf_size = 0;
@@ -47,7 +48,7 @@ static int leN(FILE *fp, Pilha *p) {
     return line_count;
 }
 
-Pilha *leArquivo(char *FILENAMEINPUT, Pilha *p) {
+PlanoR *leArquivo(char *FILENAMEINPUT, PlanoR *p) {
     FILE *fp = fopen(FILENAMEINPUT, "r");
     if (!fp) {
         fprintf(stderr, "Erro ao abrir arquivo '%s'\n", FILENAMEINPUT);
@@ -72,8 +73,7 @@ Pilha *leArquivo(char *FILENAMEINPUT, Pilha *p) {
     char *line_buf = NULL;
     size_t line_buf_size = 0;
 
-    setDimensao(p, m);
-    setQuantidade(p, n);
+    initVetorPontos (p, n, m);
 
     /* Loop through until we are done with the file. */
     for (int i = 0; i < n; ++i) {
@@ -91,7 +91,7 @@ Pilha *leArquivo(char *FILENAMEINPUT, Pilha *p) {
         }
 
         Ponto *novoPonto = initPonto(idPonto, coords, i);
-        push(p, novoPonto);
+        insere(p, novoPonto, i);
     }
 
     /* Free the allocated line buffer */
