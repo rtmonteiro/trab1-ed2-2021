@@ -22,7 +22,7 @@ void insere (PlanoR* plano, Ponto* ponto, int i) {
     plano->pontos[i] = ponto;
 }
 
-Distancia** distanciasPilha (PlanoR* plano) {
+Distancia** distanciasPontos (PlanoR* plano) {
     Distancia** dist = initVetDistancia(plano->qtd);
     int i = 0;
 

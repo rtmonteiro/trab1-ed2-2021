@@ -36,7 +36,7 @@
     * @pre plano inicializada e não vazia
     * @post vetor com distancias entre os pontos existe
     **/ 
-    Distancia** distanciasPilha (PlanoR* plano);
+    Distancia** distanciasPontos (PlanoR* plano);
 
     /** 
     * Retorna quantidade de elementos na plano
