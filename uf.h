@@ -98,6 +98,8 @@
     **/
     int todosObjetosConectados(UF* id);
 
+    void imprimeAgrupamentos(UF* uf, char* FILENAME);
+
     /**
      * Impressão do vetor do UF
      * @param {UF*}id - Estrutura de union-conectado.

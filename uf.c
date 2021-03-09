@@ -85,6 +85,30 @@ int todosObjetosConectados(UF* id) {
     return 1;
 }
 
+void imprimeAgrupamentos(UF* uf, char* FILENAME){
+    FILE* arq = fopen(FILENAME, "w");
+    int raiz;
+
+    qsort(uf->id, uf->N, sizeof(Ponto*), comparaId);
+
+    for (int i = 0; i < uf->N; i++) {
+        raiz = getRaizPonto(uf->id[i]);
+        if(raiz == -1)
+              continue;
+        fprintf(arq, "%s", getIdPonto(uf->id[i]));
+        setRaizPonto(uf->id[i], -1);
+        for(int j = i+1; j < uf->N; j++){
+            if (getRaizPonto(uf->id[j]) == raiz){
+                fprintf(arq, ",%s", getIdPonto(uf->id[j]));
+                setRaizPonto(uf->id[j], -1);
+            }
+        }
+        fprintf(arq, "\n");
+    }
+
+    fclose(arq);
+}
+
 void mostraUnionFind(UF* id) {
     for (int i = 0; i < id->N; i++){
         printf("%d ", getID(id, i));

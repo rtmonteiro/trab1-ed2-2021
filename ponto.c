@@ -27,8 +27,11 @@ double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
     return sqrt(sum);
 }
 
-int comparaId(Ponto* p1, Ponto* p2) {
-    return strcmp(p1->id, p2->id);
+int comparaId(const void* p1, const void* p2) {
+    const Ponto* pri = *(const Ponto**) p1;
+    const Ponto* seg = *(const Ponto**) p2;
+    
+    return strcmp(pri->id, seg->id);
 }
 
 void setRaizPonto(Ponto* p, int raiz) {

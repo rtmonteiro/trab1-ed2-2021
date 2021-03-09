@@ -34,7 +34,7 @@
      * @pre pontos alocados
      * @post nada
     **/
-    int comparaId(Ponto* p1, Ponto* p2);
+    int comparaId(const void* p1, const void* p2);
 
     /**
      * Modifica a raiz do ponto

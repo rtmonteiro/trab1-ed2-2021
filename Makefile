@@ -15,6 +15,7 @@ ARGS2 := ./in-exemplos/2.txt 4
 ARGS3 := ./in-exemplos/3.txt 5
 ARGS4 := ./in-exemplos/4.txt 5
 ARGS5 := ./in-exemplos/5.txt 10
+ARGS6 := ./in-exemplos/6.txt 3
 SAIDA := saida.txt
 
 VALGRIND	:= 
@@ -46,6 +47,9 @@ run4:
 
 run5: 
 	./$(EXECUTABLE) $(ARGS5) $(SAIDA)
+
+run6: 
+	./$(EXECUTABLE) $(ARGS6) $(SAIDA)
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(CINCLUDES) $^ -o $@ $(LIBRARIES) -lm

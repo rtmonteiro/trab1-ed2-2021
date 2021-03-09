@@ -28,7 +28,7 @@ int main(int argc, char** argv ) {
     agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
     mostraUnionFind(unionFind);
 
-
+    imprimeAgrupamentos(unionFind, FILENAMEOUTPUT);
 
     //region Libera
     liberaPlano(plano);
