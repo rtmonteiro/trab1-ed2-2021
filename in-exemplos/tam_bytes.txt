@@ -12,3 +12,11 @@ Com lista:
 3.txt: ==16573==   total heap usage: 503,509 allocs, 503,509 frees, 20,066,313 bytes allocated
 4.txt: ==16593==   total heap usage: 3,133,760 allocs, 3,133,760 frees, 125,218,782 bytes allocated
 5.txt: ==16670==   total heap usage: 12,517,510 allocs, 12,517,510 frees, 500,632,686 bytes allocated
+
+Com vetor:
+==106493==   total heap usage: 87 allocs, 87 frees, 11,516 bytes allocated
+==106514==   total heap usage: 1,388 allocs, 1,388 frees, 62,025 bytes allocated
+==106521==   total heap usage: 5,263 allocs, 5,263 frees, 215,374 bytes allocated
+==106551==   total heap usage: 502,513 allocs, 502,513 frees, 20,059,057 bytes allocated
+==106563==   total heap usage: 3,131,265 allocs, 3,131,265 frees, 125,193,790 bytes allocated
+==106584==   total heap usage: 12,512,516 allocs, 12,512,516 frees, 500,577,974 bytes allocated
