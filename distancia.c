@@ -14,7 +14,7 @@ void print(Distancia** vet, int n) {
 
     for (int i = 0; i < n; i++)
     {
-        printf("p1 %d p2 %d %lf\n", getRaizPonto(vet[i]->p1), getRaizPonto(vet[i]->p1), vet[i]->dist);
+        printf("p1 %d p2 %d %lf\n", getRaizPonto(vet[i]->p1), getRaizPonto(vet[i]->p2), vet[i]->dist);
     }
     printf("\n");
 }

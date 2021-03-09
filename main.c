@@ -13,12 +13,6 @@ int main(int argc, char** argv ) {
     char *FILENAMEINPUT = argv[1];
     char *FILENAMEOUTPUT = argv[3];
 
-    FILE *fp = fopen(FILENAMEINPUT, "r");
-    if (!fp) {
-        fprintf(stderr, "Erro ao abrir arquivo '%s'\n", FILENAMEINPUT);
-        exit(1);
-    }
-
     int k = (int) strtod(argv[2], NULL);
     
     PlanoR *plano = initPlanoRVazio();
@@ -31,8 +25,8 @@ int main(int argc, char** argv ) {
 
     UF* unionFind = initUnionFind(getPontos(plano), tam);
     // mostraUnionFind(unionFind);
-    // agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
-    // mostraUnionFind(unionFind);
+    agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
+    mostraUnionFind(unionFind);
 
 
 
