@@ -22,7 +22,6 @@ void print(Distancia** vet, int n) {
 void ordenaVetDistancia(Distancia** vetDist, int n) {
     int tam = ((n-1) * n)/2;
     qsort(vetDist, tam, sizeof(Distancia*), comparaDistancia);
-    print(vetDist, tam);
 }
 
 Distancia** initVetDistancia(int n) {
