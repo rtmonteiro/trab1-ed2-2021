@@ -1,13 +1,17 @@
-//
-// Created by Pichau on 02/03/2021.
-//
-
 #ifndef TRAB1_ED2_2021_LEARQUIVO_H
-#define TRAB1_ED2_2021_LEARQUIVO_H
+    #define TRAB1_ED2_2021_LEARQUIVO_H
 
-#include "pilha.h"
-#include "planoR.h"
+    #include "pilha.h"
+    #include "planoR.h"
 
-PlanoR *leArquivo(char *FILENAME, PlanoR *p);
+    /**
+     * Le o arquivo de entrada e aloca os pontos lidos
+     * @param {char*}FILENAME nome do arquivo a ser lido
+     * @param {PlanoR*}p 
+     * @return Estrutura planoR preenchida
+     * @pre FILENAME e PlanoR existem
+     * @post PlanoR modificado
+     **/
+    PlanoR* leArquivo(char* FILENAME, PlanoR* p);
 
-#endif //TRAB1_ED2_2021_LEARQUIVO_H
+#endif
