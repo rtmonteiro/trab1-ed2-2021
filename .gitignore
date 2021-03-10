@@ -3,3 +3,4 @@ CMakeLists.txt
 *.o
 cmake-build-debug
 trab1
+saida.txt
