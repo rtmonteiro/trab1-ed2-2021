@@ -12,7 +12,7 @@ letras = string.hexdigits
 
 for i in range(N):
     ponto = []
-    ponto.append("".join(random.choice(letras) for i in range(10)))
+    ponto.append("".join(random.choice(letras) for i in range(random.randint(1, 31))))
     print("Ponto antes",ponto)
 
     tem_repetido = True
@@ -20,6 +20,7 @@ for i in range(N):
         tem_repetido = False
         coordenadas = []
 
+        
         for i in range(M):
             coordenadas.append(random.random() * 10)
         
