@@ -10,11 +10,12 @@ struct planoR{
     int qtd; // quantidade de pontos no vetor
 };
 
-PlanoR* initPlanoRVazio () {
+PlanoR* initPlanoRVazio (int N, int M) {
     // Plano vazio, com vetor de pontos = NULL
     PlanoR* novo = (PlanoR*) malloc (sizeof(PlanoR));
-    novo->pontos = NULL; 
-    novo->qtd = novo->qtd = 0;
+    novo->pontos = (Ponto**) malloc (sizeof(Ponto*) * N);
+    novo->qtd = N;
+    novo->dim = M;
 
     return novo;
 }

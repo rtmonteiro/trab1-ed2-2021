@@ -14,7 +14,7 @@
      * @pre nada
      * @post plano alocado
     **/ 
-    PlanoR* initPlanoRVazio ();
+    PlanoR* initPlanoRVazio (int N, int M);
 
     /**
      * Inicializa vetor de pontos do plano
