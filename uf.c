@@ -17,6 +17,7 @@ UF* initUnionFind(Ponto** pontos, int N)  {
     id->id = pontos;
     id->alturas = (int*) malloc (sizeof(int) * N);
 
+    // Inicializa o vetor de alturas
     for (int i = 0; i < N; i++) {
         setRaizPonto(id->id[i], i);
         id->alturas[i] = 1;
@@ -42,6 +43,7 @@ void aumentaAlturas(UF* id, int i, int j) {
 }
 
 int getRaiz(UF *id, int i) {
+    // Realiza o path compression enquanto busca a raiz
     int raiz = i;
     while (raiz != getID(id, raiz)) {
         raiz = getID(id, raiz);
@@ -62,10 +64,10 @@ int conectado(UF* id, int p, int q) {
 int criaUniao(UF* id, int p, int q) {
     int i = getRaiz(id, p);
     int j = getRaiz(id, q);
-    //printf("\nPontos: %s e %s\n", getIdPonto(distancia->p1), getIdPonto(distancia->p2));
+    
     if (i == j) return 0;
-    //printf("\nindices| %d - %d |\n", i, j);
-    //printf("alturas| %d - %d |\n\n", getAltura(id, i), getAltura(id, j));
+    
+    // Unindo a menor "arvore" a maior
     if (getAltura(id, p) < getAltura(id, q)) {
         setID(id, i, j);
         aumentaAlturas(id, j, i);
@@ -89,18 +91,24 @@ void imprimeAgrupamentos(UF* uf, char* FILENAME){
     FILE* arq = fopen(FILENAME, "w");
     int raiz;
 
+    // ordena lexicograficamente o vetor uf
     qsort(uf->id, uf->N, sizeof(Ponto*), comparaId);
 
     for (int i = 0; i < uf->N; i++) {
         raiz = getRaizPonto(uf->id[i]);
+
+        // se raiz for igual a -1, então o nó já foi visitado
         if(raiz == -1)
               continue;
+
         fprintf(arq, "%s", getIdPonto(uf->id[i]));
-        setRaizPonto(uf->id[i], -1);
+        setRaizPonto(uf->id[i], -1); // setando a raiz para -1 pois já foi visitada
+        
+        // procura todos pontos que tenham mesma raiz do achado acima
         for(int j = i+1; j < uf->N; j++){
             if (getRaizPonto(uf->id[j]) == raiz){
                 fprintf(arq, ",%s", getIdPonto(uf->id[j]));
-                setRaizPonto(uf->id[j], -1);
+                setRaizPonto(uf->id[j], -1); // setando a raiz para -1 pois já foi visitada
             }
         }
         fprintf(arq, "\n");

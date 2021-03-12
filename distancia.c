@@ -10,8 +10,6 @@ struct distancia {
 };
 
 void print(Distancia** vet, int n) {
-    // int tam = ((n-1) * n)/2;
-
     for (int i = 0; i < n; i++)
     {
         printf("p1 %d p2 %d %lf\n", getRaizPonto(vet[i]->p1), getRaizPonto(vet[i]->p2), vet[i]->dist);
@@ -21,6 +19,8 @@ void print(Distancia** vet, int n) {
 
 void ordenaVetDistancia(Distancia** vetDist, int n) {
     int tam = ((n-1) * n)/2;
+
+    // ordena o vetor de forma crescente de acordo com as distancias
     qsort(vetDist, tam, sizeof(Distancia*), comparaDistancia);
 }
 
@@ -57,10 +57,13 @@ static int agrupaCaminhoPontos (UF* uf, Distancia* distancia, int n) {
 
 void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k) {
     int caminhos = 0;
+
+    // Rodando o vetor de distancias e criand n-k conexoes nos pontos de uf
     for (int i = 0; i < tamPA - 1 && caminhos < n - k; i++) {
         caminhos += agrupaCaminhoPontos(uf, vetDistancia[i], i);
     }
 
+    // Forçando path comprassion no vetor de pontos de uf
     for (int i = 0; i < n; i++) {
         getRaiz(uf, i);
     }
