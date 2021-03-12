@@ -3,53 +3,71 @@
 
     #include "ponto.h"
     #include "uf.h"
-
-    // Retorna dist
-    // inializa vetor -> tam = n(n-1)/2
-    // insere distancias
-    // ordena vetor
     
     // define o tipo opaco Distancia
     typedef struct distancia Distancia;
 
+    /**
+     * Ordena crescentemente o vetor de distancia
+     * @param {int}n tamando do vetor
+     * @param {Distancia**}vetDist vetor de Distancia
+     * @return nada
+     * @pre vetor de Distancia alocado
+     * @post vetor de Distancia ordenado
+    **/
     void ordenaVetDistancia(Distancia** vetDist, int n);
 
     /**
      * Inicializa um vetor de Distancias
-     * input: um inteiro
-     * output: estrutura Distancia inicializada
-     * pré-condição: inteiro existe
-     * pós-condição: Estrutura Distancia alocada
+     * @param {int}n tamando do vetor
+     * @return estrutura Distancia inicializada
+     * @pre inteiro existe
+     * @post vetor de Distancia alocado
     **/
     Distancia** initVetDistancia(int n);
 
     /**
      * Inicializa uma Distancia
-     * input: dois Pontos e um inteiro
-     * output: estrutura Distancia inicializada
-     * pré-condição: Pontos alocados
-     * pós-condição: Estrutura Distancia alocada
+     * @param {Ponto*}p1
+     * @param {Ponto*}p2
+     * @param {int}m dimensão do ponto
+     * @return estrutura Distancia inicializada
+     * @pre Pontos alocados
+     * @post Estrutura Distancia alocada
     **/
     Distancia* initDistancia(Ponto* p1, Ponto* p2, int m);
 
 
     /**
      * Compara duas distancias
-     * input: ?
-     * output: 0 se iguais; 1 se d1 > d2; -1 se d1 < d2
-     * pré-condição: Distancias alocadas
-     * pós-condição: nada
+     * @param {const void*}d1 estrutura Distancia 
+     * @param {const void*}d2 estrutura Distancia 
+     * @return 0 se iguais; 1 se d1 > d2; -1 se d1 < d2
+     * @pre Distancias alocadas
+     * @post nada
     **/
     int comparaDistancia(const void* d1, const void* d2);
 
+    /**
+     * Agrupa as distancias na estrutura UF
+     * @param {UF*}uf estrutura de agrupamento
+     * @param {Distancia**}vetDistancia
+     * @param {int}n número de pontos
+     * @param {int}tamPA tamanho do vetor de Distancia
+     * @param {int}k número de grupos a serem criados
+     * @return nada
+     * @pre vetor de Distancia e uf alocados
+     * @post valores de uf modificados
+    **/
     void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k);
 
     /**
      * Libera a memória alocada pelo vetor distancia
-     * input: vetor de Distancias e um inteiro tamanho do vetor
-     * output: nada
-     * pré-condição: vetor e suas posições alocados
-     * pós-condição: memória libera
+     * @param {Distancia**}vetDistancia
+     * @param {int}n tamanho do vetor
+     * @return nada
+     * @pre vetor e suas posições alocados
+     * @post memória liberada
     **/
     void liberaDistancia(Distancia** vetDistancia, int n);
     
