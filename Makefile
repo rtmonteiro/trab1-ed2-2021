@@ -9,6 +9,8 @@ EXECUTABLE	:= trab1
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 
+ARGS  := ./in-exemplos/0.txt
+K     := 3
 ARGS0 := ./in-exemplos/0.txt 3
 ARGS1 := ./in-exemplos/1.txt 2
 ARGS2 := ./in-exemplos/2.txt 4
@@ -29,6 +31,9 @@ all: clean $(EXECUTABLE)
 .PHONY: clean
 clean:
 	-$(RM) $(OBJECTS)
+
+run: 
+	./$(EXECUTABLE) $(ARGS) $(K) $(SAIDA)
 
 run0: 
 	./$(EXECUTABLE) $(ARGS0) $(SAIDA)
@@ -53,6 +58,9 @@ run6:
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(CINCLUDES) $^ -o $@ $(LIBRARIES) -lm
+
+val: 
+	valgrind ./$(EXECUTABLE) $(ARGS) $(K) $(SAIDA)
 
 val0: 
 	valgrind ./$(EXECUTABLE) $(ARGS0) $(SAIDA)
