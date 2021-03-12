@@ -60,6 +60,10 @@ void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k) 
     for (int i = 0; i < tamPA - 1 && caminhos < n - k; i++) {
         caminhos += agrupaCaminhoPontos(uf, vetDistancia[i], i);
     }
+
+    for (int i = 0; i < n; i++) {
+        getRaiz(uf, i);
+    }
 }
 
 void liberaDistancia(Distancia** vetDistancia, int n) {
