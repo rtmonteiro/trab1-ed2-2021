@@ -18,6 +18,10 @@ ARGS3 := ./in-exemplos/3.txt 5
 ARGS4 := ./in-exemplos/4.txt 5
 ARGS5 := ./in-exemplos/5.txt 10
 ARGS6 := ./in-exemplos/6.txt 3
+ARGS7 := ./in-exemplos/7.txt 3
+ARGS8 := ./in-exemplos/8.txt 10
+ARGS9 := ./in-exemplos/9.txt 42
+ARGS10 := ./in-exemplos/10.txt 20
 SAIDA := saida.txt
 
 VALGRIND	:= 
@@ -56,6 +60,18 @@ run5:
 run6: 
 	./$(EXECUTABLE) $(ARGS6) $(SAIDA)
 
+run7: 
+	./$(EXECUTABLE) $(ARGS7) $(SAIDA)
+
+run8: 
+	./$(EXECUTABLE) $(ARGS8) $(SAIDA)
+
+run9: 
+	./$(EXECUTABLE) $(ARGS9) $(SAIDA)
+
+run10: 
+	./$(EXECUTABLE) $(ARGS10) $(SAIDA)
+
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(CINCLUDES) $^ -o $@ $(LIBRARIES) -lm
 
@@ -79,6 +95,21 @@ val4:
 
 val5: 
 	valgrind ./$(EXECUTABLE) $(ARGS5) $(SAIDA)
+
+val6: 
+	valgrind ./$(EXECUTABLE) $(ARGS6) $(SAIDA)
+	
+val7: 
+	valgrind ./$(EXECUTABLE) $(ARGS7) $(SAIDA)
+
+val8: 
+	valgrind ./$(EXECUTABLE) $(ARGS8) $(SAIDA)
+
+val9: 
+	valgrind ./$(EXECUTABLE) $(ARGS9) $(SAIDA)
+
+val10: 
+	valgrind ./$(EXECUTABLE) $(ARGS10) $(SAIDA)
 	
 full: 
 	- valgrind -v --leak-check=full ./$(EXECUTABLE) $(N)
