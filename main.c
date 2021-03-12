@@ -6,6 +6,7 @@
 #include "distancia.h"
 #include "leArquivo.h"
 #include "uf.h"
+#include "pilha.h"
 
 int main(int argc, char** argv ) {
     if (argc < 4) exit(1);
@@ -15,8 +16,13 @@ int main(int argc, char** argv ) {
 
     int k = (int) strtod(argv[2], NULL);
     
-    PlanoR *plano = initPlanoRVazio();
-    plano = leArquivo(FILENAMEINPUT, plano);
+    Pilha* pilha = initPilha();
+    pilha = leArquivo(FILENAMEINPUT, pilha);
+
+    int m = getDimensaoPilha(pilha);
+    int n = getQtdPilha(pilha);
+    PlanoR *plano = initPlanoRVazio(n, m);
+    pilhaVetor(pilha, plano);
 
     Distancia **vetorDistancias = distanciasPontos(plano);
 
@@ -26,11 +32,12 @@ int main(int argc, char** argv ) {
     UF* unionFind = initUnionFind(getPontos(plano), tam);
     // mostraUnionFind(unionFind);
     agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
-    // mostraUnionFind(unionFind);
+    // // mostraUnionFind(unionFind);
 
     imprimeAgrupamentos(unionFind, FILENAMEOUTPUT);
 
-    //region Libera
+    // // //region Libera
+    liberaPilha(pilha);
     liberaPlano(plano);
     liberaDistancia(vetorDistancias, tam);
     liberaUnionFind(unionFind);
