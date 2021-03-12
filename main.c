@@ -26,7 +26,7 @@ int main(int argc, char** argv ) {
     UF* unionFind = initUnionFind(getPontos(plano), tam);
     // mostraUnionFind(unionFind);
     agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
-    mostraUnionFind(unionFind);
+    // mostraUnionFind(unionFind);
 
     imprimeAgrupamentos(unionFind, FILENAMEOUTPUT);
 
@@ -36,6 +36,6 @@ int main(int argc, char** argv ) {
     liberaUnionFind(unionFind);
     //endregion
 
-    printf("IUPI!");
+    // printf("IUPI!");
     return EXIT_SUCCESS;
 }

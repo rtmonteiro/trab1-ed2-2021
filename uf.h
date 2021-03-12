@@ -11,7 +11,7 @@
      * @example https://algs4.cs.princeton.edu/15uf/
      * @return estrutura UF (union-conectado) inicializado.
      * @pre nada.
-     * @post estrutura UF alocada.
+     * @post estrutura UF e seus itens alocados
     **/
     UF* initUnionFind(Ponto** pontos, int N) ;
 
