@@ -35,8 +35,6 @@ for i in range(N):
              
             if iguais == len(coordenadas):
                 tem_repetido = True
-            else:
-                tem_igual = all(elemento == ponto[0] for elemento in ponto_obs)
   
         if tem_repetido:
             continue
