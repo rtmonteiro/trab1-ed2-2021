@@ -7,7 +7,7 @@
 #define TAM 10
 
 
-static int leM(FILE* fp, PlanoR* p) {
+static int leM(FILE* fp) {
 
     //le a primeira linha e retorna m
     char* line_buf = NULL;
@@ -29,7 +29,7 @@ static int leM(FILE* fp, PlanoR* p) {
     return m;
 }
 
-static int leN(FILE* fp, PlanoR* p) {
+static int leN(FILE* fp) {
     //le o resto do arquivo e retorna n
     char* line_buf = NULL;
     size_t line_buf_size = 0;
