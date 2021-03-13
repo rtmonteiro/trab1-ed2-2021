@@ -22,7 +22,7 @@ int main(int argc, char** argv ) {
     int m = getDimensaoPilha(pilha);
     int n = getQtdPilha(pilha);
     PlanoR *plano = initPlanoRVazio(n, m);
-    pilhaVetor(pilha, plano);
+    pilhaParaPlanoR(pilha, plano);
 
     Distancia **vetorDistancias = distanciasPontos(plano);
 

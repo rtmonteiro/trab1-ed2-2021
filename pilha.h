@@ -71,7 +71,17 @@
     * @post dimensao modificada
     **/ 
     void setDimensaoPilha(Pilha* pilha, int m);
-    Ponto** pilhaVetor(Pilha* pilha, PlanoR* plano);
+
+    /** 
+    * Preenche o vetor de pontos do PlanoR com base na pilha
+    * @param {Pilha*}pilha
+    * @param {PlanoR*}plano 
+    * @return nada
+    * @pre pilha inicializada e não vazia, plano alocado
+    * @post vetor de pontos de PlanoR preenchido
+    **/ 
+    void pilhaParaPlanoR(Pilha* pilha, PlanoR* plano);
+
     /** 
     * Libera memoria alocada pela pilha
     * @param {Pilha*}pilha

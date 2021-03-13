@@ -94,7 +94,7 @@ void setDimensaoPilha(Pilha* pilha, int m) {
     pilha->dimensao = m;
 }
 
-Ponto** pilhaVetor(Pilha* pilha, PlanoR* plano) {
+void pilhaParaPlanoR(Pilha* pilha, PlanoR* plano) {
     Cel *aux = pilha->pontos;
     for (int i = pilha->qtd - 1; i >= 0; i--) {
 
