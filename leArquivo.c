@@ -150,6 +150,6 @@ Pilha *leArquivo(char* FILENAMEINPUT, Pilha *p) {
     /* Free the allocated line buffer */
     free(line_buf);
     line_buf = NULL;
-
+    fclose(fp);
     return p;
 }
