@@ -52,8 +52,8 @@ PlanoR* leArquivo(char* FILENAMEINPUT, PlanoR* p) {
         exit(1);
     }
 
-    int m = leM(fp, p);
-    int n = leN(fp, p);
+    int m = leM(fp);
+    int n = leN(fp);
 
     fclose(fp);
 
