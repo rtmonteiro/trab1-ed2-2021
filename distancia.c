@@ -10,15 +10,6 @@ struct distancia {
     double dist; // distancia entre os pontos
 };
 
-<<<<<<< HEAD
-=======
-void print(Distancia** vet, int n) {
-    for (int i = 0; i < n; i++){
-        printf("p1 %d p2 %d %lf\n", getRaizPonto(vet[i]->p1), getRaizPonto(vet[i]->p2), vet[i]->dist);
-    }
-    printf("\n");
-}
->>>>>>> 1a639f64e9e676e156c6dbb132a1c94042350183
 
 void ordenaVetDistancia(Distancia** vetDist, int n) {
     int tam = ((n-1) * n)/2;
