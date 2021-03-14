@@ -14,17 +14,7 @@
      * @pre nada
      * @post plano alocado
     **/ 
-    PlanoR* initPlanoRVazio (int N, int M);
-
-    /**
-     * Inicializa vetor de pontos do plano
-     * @param {int}N quantidade de pontos no plano
-     * @param {int}M dimensao do plano
-     * @return nada
-     * @pre estrutura PlanoR alocada
-     * @post vetor alocado
-    **/ 
-    void initVetorPontos (PlanoR* plano, int N, int M);
+    PlanoR* initPlanoR (int N, int M);
 
     /**
     * Coloca ponto como o ultimo elemento do vetor de pontos do plano

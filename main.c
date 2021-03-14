@@ -21,7 +21,7 @@ int main(int argc, char** argv ) {
 
     int m = getDimensaoPilha(pilha);
     int n = getQtdPilha(pilha);
-    PlanoR *plano = initPlanoRVazio(n, m);
+    PlanoR *plano = initPlanoR(n, m);
     pilhaParaPlanoR(pilha, plano);
 
     Distancia **vetorDistancias = distanciasPontos(plano);
@@ -36,13 +36,12 @@ int main(int argc, char** argv ) {
 
     imprimeAgrupamentos(unionFind, FILENAMEOUTPUT);
 
-    // // //region Libera
+    //region Libera
     liberaPilha(pilha);
     liberaPlano(plano);
     liberaDistancia(vetorDistancias, tam);
     liberaUnionFind(unionFind);
     //endregion
 
-    // printf("IUPI!");
     return EXIT_SUCCESS;
 }
