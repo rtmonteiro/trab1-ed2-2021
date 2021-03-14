@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "distancia.h"
+#include <time.h>
 #include "uf.h"
 
 struct distancia {
@@ -10,8 +11,7 @@ struct distancia {
 };
 
 void print(Distancia** vet, int n) {
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         printf("p1 %d p2 %d %lf\n", getRaizPonto(vet[i]->p1), getRaizPonto(vet[i]->p2), vet[i]->dist);
     }
     printf("\n");
@@ -56,16 +56,25 @@ static int agrupaCaminhoPontos (UF* uf, Distancia* distancia, int n) {
 
 void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k) {
     int caminhos = 0;
+    clock_t start_t, end_t;
 
+    start_t = clock();
     // Rodando o vetor de distancias e criand n-k conexoes nos pontos de uf
     for (int i = 0; i < tamPA - 1 && caminhos < n - k; i++) {
         caminhos += agrupaCaminhoPontos(uf, vetDistancia[i], i);
     }
+    end_t = clock();
 
+    printf("MST = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
+
+    start_t = clock();
     // Forçando path comprassion no vetor de pontos de uf
     for (int i = 0; i < n; i++) {
         getRaiz(uf, i);
     }
+    end_t = clock();
+    printf("Identificação dos caminhos = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
+
 }
 
 void liberaDistancia(Distancia** vetDistancia, int tam) {
