@@ -29,12 +29,13 @@
 
     /** 
     * Percorre a plano de forma que ponto1 != ponto2 e calcula distancias
-    * @param {PlanoR*} plano
+    * @param {PlanoR*}plano
+    * @param {int}tam tamanho do vetor de distancias
     * @return nada
     * @pre plano inicializada e nao vazia
     * @post vetor com distancias entre os pontos existe
     **/ 
-    Distancia** distanciasPontos (PlanoR* plano);
+    Distancia** distanciasPontos (PlanoR* plano, int tam);
 
     /** 
     * Retorna vetor de pontos do plano

@@ -24,8 +24,7 @@ void ordenaVetDistancia(Distancia** vetDist, int n) {
     qsort(vetDist, tam, sizeof(Distancia*), comparaDistancia);
 }
 
-Distancia** initVetDistancia(int n) {
-    int tam = ((n-1) * n)/2;
+Distancia** initVetDistancia(int tam) {
     Distancia** vetdist = (Distancia**) malloc (sizeof(Distancia*) * tam);
 
     return vetdist;       
@@ -69,9 +68,7 @@ void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k) 
     }
 }
 
-void liberaDistancia(Distancia** vetDistancia, int n) {
-    int tam = ((n-1) * n)/2;
-
+void liberaDistancia(Distancia** vetDistancia, int tam) {
     for (int i = 0; i < tam; i++) {
         free(vetDistancia[i]);
     }

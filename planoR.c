@@ -24,8 +24,8 @@ void insere (PlanoR* plano, Ponto* ponto, int i) {
     plano->pontos[i] = ponto;
 }
 
-Distancia** distanciasPontos (PlanoR* plano) {
-    Distancia** dist = initVetDistancia(plano->qtd);
+Distancia** distanciasPontos (PlanoR* plano, int tam) {
+    Distancia** dist = initVetDistancia(tam);
     int i = 0;
 
     // Percore vetor de forma que ponto1 eh sempre diferente de ponto2

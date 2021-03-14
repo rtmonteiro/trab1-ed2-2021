@@ -18,22 +18,22 @@ int main(int argc, char** argv ) {
     Pilha* pilha = initPilha();
     pilha = leArquivo(FILENAMEINPUT, pilha);
 
-    PlanoR *plano = initPlanoR(getQtdPilha(pilha), getDimensaoPilha(pilha));
+    int n = getQtdPilha(pilha);
+    PlanoR *plano = initPlanoR(n, getDimensaoPilha(pilha));
     pilhaParaPlanoR(pilha, plano);
 
-    Distancia **vetorDistancias = distanciasPontos(plano);
+    int tamDist = n * (n - 1) / 2;
 
-    int tam = getQtd(plano);
-    int tamDist = tam * (tam - 1) / 2;
+    Distancia **vetorDistancias = distanciasPontos(plano, tamDist);
 
-    UF* unionFind = initUnionFind(getPontos(plano), tam);
-    agrupaCaminhos(unionFind, vetorDistancias, tam, tamDist, k);
+    UF* unionFind = initUnionFind(getPontos(plano), n);
+    agrupaCaminhos(unionFind, vetorDistancias, n, tamDist, k);
 
     imprimeAgrupamentos(unionFind, FILENAMEOUTPUT);
 
     liberaPilha(pilha);
     liberaPlano(plano);
-    liberaDistancia(vetorDistancias, tam);
+    liberaDistancia(vetorDistancias, tamDist);
     liberaUnionFind(unionFind);
 
     return EXIT_SUCCESS;
