@@ -6,7 +6,7 @@
 
 struct uf {
     Ponto** id;
-    int* alturas;
+    int* tamanhos;
     int N;
 };
 
@@ -15,12 +15,12 @@ UF* initUnionFind(Ponto** pontos, int N)  {
     id->N = N;
     
     id->id = pontos;
-    id->alturas = (int*) malloc (sizeof(int) * N);
+    id->tamanhos = (int*) malloc (sizeof(int) * N);
 
-    // Inicializa o vetor de alturas
+    // Inicializa o vetor de tamanhos
     for (int i = 0; i < N; i++) {
         setRaizPonto(id->id[i], i);
-        id->alturas[i] = 1;
+        id->tamanhos[i] = 1;
     }
 
     return id;
@@ -34,12 +34,12 @@ void setID(UF* id, int i, int j) {
     setRaizPonto(id->id[i], j);
 }
 
-int getAltura(UF* id, int i) {
-    return id->alturas[i];
+int getTamanho(UF* id, int i) {
+    return id->tamanhos[i];
 }
 
-void aumentaAlturas(UF* id, int i, int j) {
-    id->alturas[i] += id->alturas[j];
+void aumentaTamanhos(UF* id, int i, int j) {
+    id->tamanhos[i] += id->tamanhos[j];
 }
 
 int getRaiz(UF *id, int i) {
@@ -68,12 +68,12 @@ int criaUniao(UF* id, int p, int q) {
     if (i == j) return 0;
     
     // Unindo a menor "arvore" a maior
-    if (getAltura(id, p) < getAltura(id, q)) {
+    if (getTamanho(id, p) < getTamanho(id, q)) {
         setID(id, i, j);
-        aumentaAlturas(id, j, i);
+        aumentaTamanhos(id, j, i);
     } else {
         setID(id, j, i);
-        aumentaAlturas(id, i, j);
+        aumentaTamanhos(id, i, j);
     }
     return 1;
 }
@@ -126,6 +126,6 @@ void mostraUnionFind(UF* id) {
 }
 
 void liberaUnionFind(UF* id) {
-    free(id->alturas);
+    free(id->tamanhos);
     free(id);
 }
