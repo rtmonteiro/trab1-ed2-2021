@@ -37,23 +37,23 @@
     void setID(UF* id, int i, int j);
 
     /**
-     * Retorna a altura do nó no índice i 
+     * Retorna o tamanho do nó no índice i 
      * @param {UF*}id Estrutura de union-conectado.
      * @param {int}i Índice que quer acessar
-     * @return altura da arvore do nó no índice i
+     * @return tamanho da arvore do nó no índice i
      * @pre estrutura UF existe
      * @post nada
     **/
-    int getAltura(UF* id, int i);
+    int getTamanho(UF* id, int i);
 
     /**
-     * Modifica a altura do nó do elemento i (soma com a altura do elemento j)
+     * Modifica o tamanho do nó do elemento i (soma com o tamanho do elemento j)
      * @param {UF*}id Estrutura de union-conectado.
      * @param {int}i Índice que o valor será modificado
      * @param {int}j Índice que o valor será somado
      * @return void
      * @pre estrutura UF existe
-     * @post altura da árvore é modificada
+     * @post tamanho da árvore é modificada
     **/
     void aumentaTamanho(UF* id, int i, int j);
 
