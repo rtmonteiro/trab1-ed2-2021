@@ -60,26 +60,6 @@ Ponto* pop(Pilha* pilha) {
     return aux->ponto;
 }
 
-
-Distancia** distanciasPilha (Pilha* pilha) {
-    Distancia** dist = initVetDistancia(pilha->qtd);
-    int i = 0;
-
-    // Percore pilha de forma que ponto1 é sempre diferente de ponto2 
-    // ponto2 eh o ponto apos ponto1
-    for(Cel* ponto1 = pilha->pontos; ponto1 != NULL ; ponto1=ponto1->prox) {
-        for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox, i++) {
-            // Calcula a distancia entre ponto1 e ponto2 e armazena num vetor
-            dist[i] = initDistancia(ponto1->ponto, ponto2->ponto, pilha->dimensao);
-        }
-    }
-
-    ordenaVetDistancia(dist, pilha->qtd);
-
-    return dist;
-}
-
-
 int getQtdPilha(Pilha* pilha) {
     return pilha->qtd;
 }
@@ -104,20 +84,14 @@ void pilhaParaPlanoR(Pilha* pilha, PlanoR* plano) {
     }
 }
 
-static void liberaPontos (Cel* cel) {
-    Cel *aux1 = cel;
+void liberaPilha (Pilha* pilha) {
+    Cel *aux1 = pilha->pontos;
     Cel *aux2;
 
     while (aux1 != NULL) {
         aux2 = aux1->prox;
-        // liberaPonto(aux1->ponto);
         free(aux1);
         aux1 = aux2;
     }
-}
-
-
-void liberaPilha (Pilha* pilha) {
-    liberaPontos(pilha->pontos);
     free(pilha);
 }

@@ -36,15 +36,6 @@
     Ponto* pop (Pilha* pilha);
 
     /** 
-    * Percorre a pilha de forma que ponto1 != ponto2 e aplica a funcao func
-    * @param {Pilha*}pilha
-    * @return nada
-    * @pre pilha inicializada e não vazia
-    * @post vetor com distancias entre os pontos existe
-    **/ 
-    Distancia** distanciasPilha (Pilha* pilha);
-
-    /** 
     * Retorna quantidade de elementos na pilha
     * @param {Pilha*}pilha
     * @return int quantidade de itens na pilha
