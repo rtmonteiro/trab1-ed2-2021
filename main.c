@@ -33,6 +33,7 @@ int main(int argc, char** argv ) {
     int n = getQtdPilha(pilha);
     PlanoR *plano = initPlanoR(n, getDimensaoPilha(pilha));
     pilhaParaPlanoR(pilha, plano);
+    liberaPilha(pilha);
 
     // Calculo da PA (tam do vetor de Distancias)
     int tamDist = n * (n - 1) / 2;
@@ -52,7 +53,6 @@ int main(int argc, char** argv ) {
 
 
     // Libera toda memória alocada
-    liberaPilha(pilha);
     liberaPlano(plano);
     liberaDistancia(vetorDistancias, tamDist);
     liberaUnionFind(unionFind);
