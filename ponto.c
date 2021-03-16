@@ -19,10 +19,11 @@ Ponto* initPonto(char *id, double *coords, int raiz) {
 }
 
 double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
-    double sum = 0;
+    double sum = 0, dif;
     for (int i = 0; i < m; i++) {
+        dif = p1->coords[i] - p2->coords[i];
         // Soma o quadrado das diferencas das coordenadas dos dois pontos
-        sum += pow((p1->coords[i] - p2->coords[i]), 2);
+        sum += (dif * dif);
     }
     return sqrt(sum);
 }

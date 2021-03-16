@@ -14,17 +14,7 @@
      * @pre nada
      * @post plano alocado
     **/ 
-    PlanoR* initPlanoRVazio ();
-
-    /**
-     * Inicializa vetor de pontos do plano
-     * @param {int}N quantidade de pontos no plano
-     * @param {int}M dimensao do plano
-     * @return nada
-     * @pre estrutura PlanoR alocada
-     * @post vetor alocado
-    **/ 
-    void initVetorPontos (PlanoR* plano, int N, int M);
+    PlanoR* initPlanoR (int N, int M);
 
     /**
     * Coloca ponto como o ultimo elemento do vetor de pontos do plano
@@ -39,12 +29,13 @@
 
     /** 
     * Percorre a plano de forma que ponto1 != ponto2 e calcula distancias
-    * @param {PlanoR*} plano
+    * @param {PlanoR*}plano
+    * @param {int}tam tamanho do vetor de distancias
     * @return nada
     * @pre plano inicializada e nao vazia
     * @post vetor com distancias entre os pontos existe
     **/ 
-    Distancia** distanciasPontos (PlanoR* plano);
+    Distancia** distanciasPontos (PlanoR* plano, int tam);
 
     /** 
     * Retorna vetor de pontos do plano

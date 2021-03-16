@@ -12,6 +12,7 @@
      * @pre FILENAME e PlanoR existem
      * @post PlanoR modificado
      **/
-    PlanoR* leArquivo(char* FILENAME, PlanoR* p);
+    // PlanoR* leArquivo(char* FILENAME, PlanoR* p);
 
+Pilha *leArquivo(char* FILENAMEINPUT, Pilha *p);
 #endif

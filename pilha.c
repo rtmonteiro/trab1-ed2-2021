@@ -1,113 +1,97 @@
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include "pilha.h"
-// #include "ponto.h"
-// #include "distancia.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "pilha.h"
+#include "ponto.h"
+#include "planoR.h"
+#include "distancia.h"
 
-// typedef struct celula Cel;
-// struct celula {
-//     Ponto* ponto;
-//     Cel *prox;
-// };
+typedef struct celula Cel;
+struct celula {
+    Ponto* ponto;
+    Cel *prox;
+};
 
-// struct pilha {
-//     int qtd; // quantidade de pontos na pilha
-//     int dimensao; // dimensao das coordenadas do ponto
-//     Cel* pontos; 
-// };
-
-
-// Pilha* initPilha() {
-//     Pilha* pilha = (Pilha*) malloc (sizeof(Pilha));
-//     pilha->qtd = pilha->dimensao = 0;
-//     pilha->pontos = NULL;
-//     return pilha;
-// }
+struct pilha {
+    int qtd; // quantidade de pontos na pilha
+    int dimensao; // dimensao das coordenadas do ponto
+    Cel* pontos; 
+};
 
 
-// void push(Pilha* pilha, Ponto* ponto) {
-//     if (pilha == NULL || ponto == NULL) {
-//         printf("Pilha ou ponto nao inicializado\n");
-//         exit(1);
-//     }
+Pilha* initPilha() {
+    Pilha* pilha = (Pilha*) malloc (sizeof(Pilha));
+    pilha->qtd = pilha->dimensao = 0;
+    pilha->pontos = NULL;
+    return pilha;
+}
+
+
+void push(Pilha* pilha, Ponto* ponto) {
+    if (pilha == NULL || ponto == NULL) {
+        printf("Pilha ou ponto nao inicializado\n");
+        exit(1);
+    }
     
-//     Cel* aux = (Cel*) malloc (sizeof(Cel));
-//     aux->ponto = ponto;
+    Cel* aux = (Cel*) malloc (sizeof(Cel));
+    aux->ponto = ponto;
 
-//     if (pilha->qtd > 0) {
-//         aux->prox = pilha->pontos;
-//     } else {
-//         aux->prox = NULL;
-//     }
+    if (pilha->qtd > 0) {
+        aux->prox = pilha->pontos;
+    } else {
+        aux->prox = NULL;
+    }
 
-//     pilha->pontos = aux;
-//     pilha->qtd++;
-// }
-
-
-// Ponto* pop(Pilha* pilha) {
-//     if (pilha == NULL || pilha->qtd > 0) {
-//         printf("Pilha NULL ou vazia\n");
-//         return NULL;
-//     } 
-
-//     Cel* aux = pilha->pontos;
-//     pilha->pontos = pilha->pontos->prox;
-//     pilha->qtd--;
-//     aux->prox = NULL;
-
-//     return aux->ponto;
-// }
+    pilha->pontos = aux;
+    pilha->qtd++;
+}
 
 
-// Distancia** distanciasPilha (Pilha* pilha) {
-//     Distancia** dist = initVetDistancia(pilha->qtd);
-//     int i = 0;
+Ponto* pop(Pilha* pilha) {
+    if (pilha == NULL || pilha->qtd < 0) {
+        printf("Pilha NULL ou vazia\n");
+        return NULL;
+    } 
 
-//     // Percore pilha de forma que ponto1 é sempre diferente de ponto2 
-//     // ponto2 eh o ponto apos ponto1
-//     for(Cel* ponto1 = pilha->pontos; ponto1 != NULL ; ponto1=ponto1->prox) {
-//         for (Cel* ponto2 = ponto1->prox; ponto2 != NULL; ponto2 = ponto2->prox, i++) {
-//             // Calcula a distancia entre ponto1 e ponto2 e armazena num vetor
-//             dist[i] = initDistancia(ponto1->ponto, ponto2->ponto, pilha->dimensao);
-//         }
-//     }
+    Cel* aux = pilha->pontos;
+    pilha->pontos = pilha->pontos->prox;
+    pilha->qtd--;
+    aux->prox = NULL;
 
-//     ordenaVetDistancia(dist, pilha->qtd);
+    return aux->ponto;
+}
 
-//     return dist;
-// }
-
-
-// int getQtd(Pilha* pilha) {
-//     return pilha->qtd;
-// }
+int getQtdPilha(Pilha* pilha) {
+    return pilha->qtd;
+}
 
 
-// int getDimensao(Pilha* pilha) {
-//     return pilha->dimensao;
-// }
+int getDimensaoPilha(Pilha* pilha) {
+    return pilha->dimensao;
+}
 
 
-// void setDimensao(Pilha* pilha, int m) {
-//     pilha->dimensao = m;
-// }
+void setDimensaoPilha(Pilha* pilha, int m) {
+    pilha->dimensao = m;
+}
 
+void pilhaParaPlanoR(Pilha* pilha, PlanoR* plano) {
+    Cel *aux = pilha->pontos;
+    for (int i = pilha->qtd - 1; i >= 0; i--) {
 
-// static void liberaPontos (Cel* cel) {
-//     Cel *aux1 = cel;
-//     Cel *aux2;
+        Ponto* ponto = aux->ponto;
+        insere(plano, ponto, i);
+        aux = aux->prox;
+    }
+}
 
-//     while (aux1 != NULL) {
-//         aux2 = aux1->prox;
-//         liberaPonto(aux1->ponto);
-//         free(aux1);
-//         aux1 = aux2;
-//     }
-// }
+void liberaPilha (Pilha* pilha) {
+    Cel *aux1 = pilha->pontos;
+    Cel *aux2;
 
-
-// void liberaPilha (Pilha* pilha) {
-//     liberaPontos(pilha->pontos);
-//     free(pilha);
-// }
+    while (aux1 != NULL) {
+        aux2 = aux1->prox;
+        free(aux1);
+        aux1 = aux2;
+    }
+    free(pilha);
+}

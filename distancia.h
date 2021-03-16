@@ -19,12 +19,12 @@
 
     /**
      * Inicializa um vetor de Distancias
-     * @param {int}n tamando do vetor
+     * @param {int}tam tamando do vetor
      * @return estrutura Distancia inicializada
      * @pre inteiro existe
      * @post vetor de Distancia alocado
     **/
-    Distancia** initVetDistancia(int n);
+    Distancia** initVetDistancia(int tam);
 
     /**
      * Inicializa uma Distancia
@@ -64,12 +64,12 @@
     /**
      * Libera a memória alocada pelo vetor distancia
      * @param {Distancia**}vetDistancia
-     * @param {int}n tamanho do vetor
+     * @param {int}tam tamanho do vetor
      * @return nada
      * @pre vetor e suas posições alocados
      * @post memória liberada
     **/
-    void liberaDistancia(Distancia** vetDistancia, int n);
+    void liberaDistancia(Distancia** vetDistancia, int tam);
     
 
 #endif
