@@ -25,7 +25,7 @@ double calculaDistanciaEntrePontos(Ponto* p1, Ponto* p2, int m) {
         // Soma o quadrado das diferencas das coordenadas dos dois pontos
         sum += (dif * dif);
     }
-    return sum;
+    return sqrt(sum);
 }
 
 int comparaId(const void* p1, const void* p2) {
