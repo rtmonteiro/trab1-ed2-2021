@@ -40,8 +40,8 @@
 
     /**
      * Compara duas distancias
-     * @param {const void*}d1 estrutura Distancia 
-     * @param {const void*}d2 estrutura Distancia 
+     * @param {Distancia*}d1 
+     * @param {Distancia*}d2  
      * @return 0 se iguais; 1 se d1 > d2; -1 se d1 < d2
      * @pre Distancias alocadas
      * @post nada
