@@ -51,7 +51,7 @@
     /**
      * Agrupa as distancias na estrutura UF
      * @param {UF*}uf estrutura de agrupamento
-     * @param {Distancia**}vetDistancia
+     * @param {Distancia**}vetDistancia vetor de distâncias
      * @param {int}n número de pontos
      * @param {int}tamPA tamanho do vetor de Distancia
      * @param {int}k número de grupos a serem criados
@@ -59,7 +59,7 @@
      * @pre vetor de Distancia e uf alocados
      * @post valores de uf modificados
     **/
-    void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k);
+    void agrupaCaminhos(UF* uf, Distancia** vetDistancia, int n, int tamPA, int k);
 
     /**
      * Libera a memória alocada pelo vetor distancia
@@ -69,7 +69,6 @@
      * @pre vetor e suas posições alocados
      * @post memória liberada
     **/
-    void liberaDistancia(Distancia** vetDistancia, int tam);
-    
+    void liberaDistancia(Distancia** vetDistancia, int tam);  
 
 #endif

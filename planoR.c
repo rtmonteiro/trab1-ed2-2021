@@ -12,7 +12,7 @@ struct planoR{
     int qtd; // quantidade de pontos no vetor
 };
 
-PlanoR* initPlanoR (int N, int M) {
+PlanoR* initPlanoR(int N, int M) {
     // Plano vazio, com vetor de pontos = NULL
     PlanoR* novo = (PlanoR*) malloc (sizeof(PlanoR));
     novo->pontos = (Ponto**) malloc (sizeof(Ponto*) * N);
@@ -22,15 +22,16 @@ PlanoR* initPlanoR (int N, int M) {
     return novo;
 }
 
-void insere (PlanoR* plano, Ponto* ponto, int i) {
+void insere(PlanoR* plano, Ponto* ponto, int i) {
     plano->pontos[i] = ponto;
 }
 
-Distancia** distanciasPontos (PlanoR* plano, int tam) {
+Distancia** distanciasPontos(PlanoR* plano, int tam) {
     Distancia** dist = initVetDistancia(tam);
     int i = 0;
     clock_t start_t, end_t;
     start_t = clock();
+
     // Percore vetor de forma que ponto1 eh sempre diferente de ponto2
     // ponto2 eh o ponto apos ponto1
     for(int ponto1 = 0; ponto1 < plano->qtd; ponto1++) {
@@ -55,7 +56,7 @@ Ponto** getPontos(PlanoR* plano) {
     return plano->pontos;
 }
 
-void liberaPlano (PlanoR* plano) {
+void liberaPlano(PlanoR* plano) {
     for (int i = 0; i < plano->qtd; i++) {
         liberaPonto(plano->pontos[i]);
     }

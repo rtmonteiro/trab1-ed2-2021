@@ -16,13 +16,15 @@ static int leM(FILE* fp) {
     int m = 0;
 
     getline(&line_buf, &line_buf_size, fp);
-
-    char* token = strtok(line_buf, ","); // pega o id do ponto 
+    
+    // pega o id do ponto 
+    char* token = strtok(line_buf, ","); 
 
     while (token) {
         token = strtok(NULL, ",");
+        // Ao ler uma nova coordenada, atualiza a dimensão dos pontos
         if (token) 
-            m++; // Ao ler uma nova coordenada, atualiza a dimensão dos pontos
+            m++; 
     }
 
     free(line_buf);
@@ -50,23 +52,25 @@ Pilha *leArquivo(char* FILENAMEINPUT, Pilha *p) {
     }
 
     setDimensaoPilha(p, m);
-//     //le o resto do arquivo e retorna n
+    
+    //le o resto do arquivo e retorna n
     char* line_buf = NULL;
     size_t line_buf_size = 0;
     int line_count = 0;
 
+    // ler primeira linha fora do loop
     getline(&line_buf, &line_buf_size, fp);
 
-    /* Loop through until we are done with the file. */
+    // Loop para leitura das linhas
     while (!feof(fp)) {
-        /* Increment our line count */
+        // contador de linhas
         line_count++;
-
-        /* Show the line details */
-        // printf("line[%06d]: contents: %s", line_count, line_buf);
+        
+        // id do ponto
         char *token = strtok(line_buf, ",");
         char* idPonto = strdup(token);
 
+        // coordenadas do ponto
         double* coords = (double*) malloc(sizeof(double) * m);
         for (int i = 0; i < m; ++i) {
             token = strtok(NULL, ",");
@@ -76,13 +80,14 @@ Pilha *leArquivo(char* FILENAMEINPUT, Pilha *p) {
         Ponto* novoPonto = initPonto(idPonto, coords, line_count-1);
         push(p, novoPonto);
 
-        /* Get the next line */
+        // pega a proxima linha
         getline(&line_buf, &line_buf_size, fp);
     }
 
-    /* Free the allocated line buffer */
+    
     free(line_buf);
     line_buf = NULL;
     fclose(fp);
+
     return p;
 }

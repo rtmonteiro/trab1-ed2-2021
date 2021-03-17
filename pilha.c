@@ -14,14 +14,12 @@ struct pilha {
     Cel* pontos; 
 };
 
-
 Pilha* initPilha() {
     Pilha* pilha = (Pilha*) malloc (sizeof(Pilha));
     pilha->qtd = pilha->dimensao = 0;
     pilha->pontos = NULL;
     return pilha;
 }
-
 
 void push(Pilha* pilha, Ponto* ponto) {
     if (pilha == NULL || ponto == NULL) {
@@ -46,11 +44,9 @@ int getQtdPilha(Pilha* pilha) {
     return pilha->qtd;
 }
 
-
 int getDimensaoPilha(Pilha* pilha) {
     return pilha->dimensao;
 }
-
 
 void setDimensaoPilha(Pilha* pilha, int m) {
     pilha->dimensao = m;
@@ -66,7 +62,7 @@ void pilhaParaPlanoR(Pilha* pilha, PlanoR* plano) {
     }
 }
 
-void liberaPilha (Pilha* pilha) {
+void liberaPilha(Pilha* pilha) {
     Cel *aux1 = pilha->pontos;
     Cel *aux2;
 
@@ -75,5 +71,6 @@ void liberaPilha (Pilha* pilha) {
         free(aux1);
         aux1 = aux2;
     }
+    
     free(pilha);
 }

@@ -48,13 +48,13 @@ int comparaDistancia(const void* d1, const void* d2) {
     return (pri->dist > seg->dist) - (pri->dist < seg->dist);
 }
 
-static int agrupaCaminhoPontos (UF* uf, Distancia* distancia, int n) {
+static int agrupaCaminhoPontos(UF* uf, Distancia* distancia, int n) {
     int id1 = getRaizPonto(distancia->p1);
     int id2 = getRaizPonto(distancia->p2);
     return criaUniao(uf, id1, id2);
 }
 
-void agrupaCaminhos (UF* uf, Distancia** vetDistancia, int n, int tamPA, int k) {
+void agrupaCaminhos(UF* uf, Distancia** vetDistancia, int n, int tamPA, int k) {
     int caminhos = 0;
     clock_t start_t, end_t;
 

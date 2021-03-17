@@ -65,7 +65,7 @@
      * @pre estrutura UF existe
      * @post nada
     **/
-    int getRaiz (UF *id, int i);
+    int getRaiz(UF *id, int i);
 
     /**
      * Une dois elementos
@@ -95,7 +95,7 @@
      * @pre estrutura UF existe
      * @post vetor é impresso no terminal
     **/
-    void mostraUnionFind (UF* id);
+    void mostraUnionFind(UF* id);
 
     /**
      * Libera memória alocada pelo union-conectado

@@ -14,7 +14,7 @@
      * @pre nada
      * @post pilha alocada
     **/ 
-    Pilha* initPilha ();
+    Pilha* initPilha();
 
     /**
     * Coloca ponto como o ultimo elemento da pilha
@@ -24,7 +24,7 @@
     * @pre pilha e ponto inicializados
     * @post ponto é adicionado ao início da lista na pilha e o topo é incrementado 1
     **/ 
-    void push (Pilha* pilha, Ponto* ponto);
+    void push(Pilha* pilha, Ponto* ponto);
 
     /** 
     * Retorna quantidade de elementos na pilha
