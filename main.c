@@ -33,7 +33,6 @@ int main(int argc, char** argv ) {
     int n = getQtdPilha(pilha);
     PlanoR *plano = initPlanoR(n, getDimensaoPilha(pilha));
     pilhaParaPlanoR(pilha, plano);
-
     liberaPilha(pilha);
 
     // Calculo da PA (tam do vetor de Distancias)
