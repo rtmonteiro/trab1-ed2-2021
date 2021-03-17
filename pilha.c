@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "pilha.h"
-#include "ponto.h"
-#include "planoR.h"
-#include "distancia.h"
 
 typedef struct celula Cel;
 struct celula {
@@ -43,21 +40,6 @@ void push(Pilha* pilha, Ponto* ponto) {
 
     pilha->pontos = aux;
     pilha->qtd++;
-}
-
-
-Ponto* pop(Pilha* pilha) {
-    if (pilha == NULL || pilha->qtd < 0) {
-        printf("Pilha NULL ou vazia\n");
-        return NULL;
-    } 
-
-    Cel* aux = pilha->pontos;
-    pilha->pontos = pilha->pontos->prox;
-    pilha->qtd--;
-    aux->prox = NULL;
-
-    return aux->ponto;
 }
 
 int getQtdPilha(Pilha* pilha) {

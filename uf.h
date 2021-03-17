@@ -68,17 +68,6 @@
     int getRaiz (UF *id, int i);
 
     /**
-     * Verifica se há caminho entre os elementos
-     * @param {UF*}id Estrutura de union-conectado.
-     * @param {int}p Elemento
-     * @param {int}q Elemento
-     * @return 1 ou 0, se tem caminho ou se não tem caminho
-     * @pre estrutura UF existe
-     * @post nada
-    **/
-    int conectado(UF* id, int p, int q);
-
-    /**
      * Une dois elementos
      * @param {UF*}id Estrutura de union-conectado.
      * @param {int}p Elemento
@@ -90,15 +79,6 @@
     int criaUniao(UF* id, int p, int q);
 
     /**
-     * Verifica se todos objetos estão conectados
-     * @param {UF*}id Estrutura de union-conectado.
-     * @return 1 ou 0, se todos estão conectados ou não
-     * @pre estrutura UF existe
-     * @post nada
-    **/
-    int todosObjetosConectados(UF* id);
-
-    /**
      * Imprime no arquivo os grupos feitos
      * @param {UF*}uf Estrutura de union-conectado.
      * @param {char*}FILENAME nome do arquivo de impressão
@@ -106,7 +86,7 @@
      * @pre estrutura UF e nome do arquivo existem
      * @post arquivo contém as impressões
     **/
-    void imprimeAgrupamentos(UF* uf, char* FILENAME);
+    void imprimeAgrupamentos(UF *uf, char *FILENAME, int k);
 
     /**
      * Impressão do vetor do UF

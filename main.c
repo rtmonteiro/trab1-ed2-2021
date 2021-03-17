@@ -34,6 +34,8 @@ int main(int argc, char** argv ) {
     PlanoR *plano = initPlanoR(n, getDimensaoPilha(pilha));
     pilhaParaPlanoR(pilha, plano);
 
+    liberaPilha(pilha);
+
     // Calculo da PA (tam do vetor de Distancias)
     int tamDist = n * (n - 1) / 2;
 
@@ -46,16 +48,18 @@ int main(int argc, char** argv ) {
 
     // Imprime os grupos no arquivo de saida
     start_t = clock();
-    imprimeAgrupamentos(unionFind, FILENAMEOUTPUT);
+    imprimeAgrupamentos(unionFind, FILENAMEOUTPUT, k);
     end_t = clock();
     printf("Escrita dos grupos = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
 
 
     // Libera toda memória alocada
-    liberaPilha(pilha);
+    start_t = clock();
     liberaPlano(plano);
     liberaDistancia(vetorDistancias, tamDist);
     liberaUnionFind(unionFind);
+    end_t = clock();
+    printf("Liberação das estruturas = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
 
     prog_end_t = clock();
     printf("Tempo total = %lfs\n", (double)(prog_end_t - prog_start_t) / CLOCKS_PER_SEC);

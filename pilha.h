@@ -26,15 +26,6 @@
     **/ 
     void push (Pilha* pilha, Ponto* ponto);
 
-    /**
-    * Retira o ultimo elemento da pilha
-    * @param {Pilha*}pilha
-    * @return nada 
-    * @pre pilha inicializada
-    * @post ultimo ponto adicionado a lista é retirado
-    **/ 
-    Ponto* pop (Pilha* pilha);
-
     /** 
     * Retorna quantidade de elementos na pilha
     * @param {Pilha*}pilha

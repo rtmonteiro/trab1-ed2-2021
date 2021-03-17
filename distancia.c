@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "distancia.h"
 #include <time.h>
-#include "uf.h"
 
 struct distancia {
     Ponto* p1;
@@ -79,7 +78,7 @@ void liberaDistancia(Distancia** vetDistancia, int tam) {
     free(vetDistancia);
 }
 
-void imprimeVetDist(Distancia** vet, int n) {
+static void imprimeVetDist(Distancia** vet, int n) {
     // Função auxiliar usada para analisar a comparação e ordenação
     for (int i = 0; i < n; i++) {
         printf("p1 %d p2 %d %lf\n", getRaizPonto(vet[i]->p1), getRaizPonto(vet[i]->p2), vet[i]->dist);

@@ -55,22 +55,6 @@ Ponto** getPontos(PlanoR* plano) {
     return plano->pontos;
 }
 
-int getQtd(PlanoR* plano) {
-    return plano->qtd;
-}
-
-void setQtd(PlanoR* plano, int N) {
-    plano->qtd = N;
-}
-
-int getDimensao(PlanoR* plano) {
-    return plano->dim;
-}
-
-void setDimensao(PlanoR* plano, int M) {
-    plano->dim = M;
-}
-
 void liberaPlano (PlanoR* plano) {
     for (int i = 0; i < plano->qtd; i++) {
         liberaPonto(plano->pontos[i]);

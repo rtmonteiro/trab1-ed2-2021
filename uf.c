@@ -57,10 +57,6 @@ int getRaiz(UF *id, int i) {
     return raiz;
 }
 
-int conectado(UF* id, int p, int q) {
-    return getRaiz(id, p) == getRaiz(id, q);
-}
-
 int criaUniao(UF* id, int p, int q) {
     int i = getRaiz(id, p);
     int j = getRaiz(id, q);
@@ -78,16 +74,7 @@ int criaUniao(UF* id, int p, int q) {
     return 1;
 }
 
-int todosObjetosConectados(UF* id) {
-    for (int i = 0; i < id->N - 1; i++) {
-        if (!conectado(id, i, i+1))
-            return 0;
-    }
-
-    return 1;
-}
-
-void imprimeAgrupamentos(UF* uf, char* FILENAME){
+void imprimeAgrupamentos(UF *uf, char *FILENAME, int k) {
     FILE* arq = fopen(FILENAME, "w");
     int raiz;
 
@@ -118,6 +105,7 @@ void imprimeAgrupamentos(UF* uf, char* FILENAME){
 }
 
 void mostraUnionFind(UF* id) {
+    // função auxiliar para conferir resultados
     for (int i = 0; i < id->N; i++){
         printf("%d ", getID(id, i));
     }
