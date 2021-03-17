@@ -94,24 +94,24 @@ void imprimeAgrupamentos(UF* uf, char* FILENAME){
     // ordena lexicograficamente o vetor uf
     qsort(uf->id, uf->N, sizeof(Ponto*), comparaId);
 
-    for (int i = 0; i < uf->N; i++) {
+    for (int i = 0; i < uf->N && k; i++) {
         raiz = getRaizPonto(uf->id[i]);
 
-        // se raiz for igual a -1, então o nó já foi visitado
-        if(raiz == -1)
-              continue;
+        // se raiz for diferente de -1, então o nó não foi visitado
+        if(raiz != -1) {
+            --k;
+            fprintf(arq, "%s", getIdPonto(uf->id[i]));
+            setRaizPonto(uf->id[i], -1); // setando a raiz para -1 pois já foi visitada
 
-        fprintf(arq, "%s", getIdPonto(uf->id[i]));
-        setRaizPonto(uf->id[i], -1); // setando a raiz para -1 pois já foi visitada
-        
-        // procura todos pontos que tenham mesma raiz do achado acima
-        for(int j = i+1; j < uf->N; j++){
-            if (getRaizPonto(uf->id[j]) == raiz){
-                fprintf(arq, ",%s", getIdPonto(uf->id[j]));
-                setRaizPonto(uf->id[j], -1); // setando a raiz para -1 pois já foi visitada
+            // procura todos pontos que tenham mesma raiz do achado acima
+            for(int j = i+1; j < uf->N; j++){
+                if (getRaizPonto(uf->id[j]) == raiz){
+                    fprintf(arq, ",%s", getIdPonto(uf->id[j]));
+                    setRaizPonto(uf->id[j], -1); // setando a raiz para -1 pois já foi visitada
+                }
             }
+            fprintf(arq, "\n");
         }
-        fprintf(arq, "\n");
     }
 
     fclose(arq);
