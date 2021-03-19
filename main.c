@@ -10,8 +10,6 @@
 #include "pilha.h"
 
 int main(int argc, char** argv ) {
-    clock_t prog_start_t, prog_end_t;
-    prog_start_t = clock();
     if (argc < 4) exit(1);
 
     char *FILENAMEINPUT = argv[1];
@@ -19,14 +17,10 @@ int main(int argc, char** argv ) {
     int k = (int) strtod(argv[2], NULL);
 
     // Inicializando a pilha auxiliar de leitura
-    clock_t start_t, end_t;
     Pilha* pilha = initPilha();
 
     // Lendo o arquivo e preenchendo a pilha com pontos
-    start_t = clock();
     pilha = leArquivo(FILENAMEINPUT, pilha);
-    end_t = clock();
-    printf("Leitura do arquivo = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
 
 
     // Inicializando o plano e o preenchendo com os pontos da pilha
@@ -46,22 +40,13 @@ int main(int argc, char** argv ) {
     agrupaCaminhos(unionFind, vetorDistancias, n, tamDist, k);
 
     // Imprime os grupos no arquivo de saida
-    start_t = clock();
     imprimeAgrupamentos(unionFind, FILENAMEOUTPUT, k);
-    end_t = clock();
-    printf("Escrita dos grupos = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
 
 
     // Libera toda memória alocada
-    start_t = clock();
     liberaPlano(plano);
     liberaDistancia(vetorDistancias, tamDist);
     liberaUnionFind(unionFind);
-    end_t = clock();
-    printf("Liberação das estruturas = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
-
-    prog_end_t = clock();
-    printf("Tempo total = %lfs\n", (double)(prog_end_t - prog_start_t) / CLOCKS_PER_SEC);
 
     return EXIT_SUCCESS;
 }

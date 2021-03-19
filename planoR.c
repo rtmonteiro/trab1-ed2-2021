@@ -29,8 +29,6 @@ void insere(PlanoR* plano, Ponto* ponto, int i) {
 Distancia** distanciasPontos(PlanoR* plano, int tam) {
     Distancia** dist = initVetDistancia(tam);
     int i = 0;
-    clock_t start_t, end_t;
-    start_t = clock();
 
     // Percore vetor de forma que ponto1 eh sempre diferente de ponto2
     // ponto2 eh o ponto apos ponto1
@@ -40,14 +38,9 @@ Distancia** distanciasPontos(PlanoR* plano, int tam) {
             dist[i] = initDistancia(plano->pontos[ponto1], plano->pontos[ponto2], plano->dim);
         }
     }
-    end_t = clock();
-    printf("Cálculo das distâncias = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
 
-    start_t = clock();
     // chama funcao que ordena vetor de distancia
     ordenaVetDistancia(dist, plano->qtd);
-    end_t = clock();
-    printf("Ordenação das distâncias = %lfs\n", (double)(end_t - start_t) / CLOCKS_PER_SEC);
 
     return dist;
 }
