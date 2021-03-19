@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include "ponto.h"
 #include "planoR.h"
+#include "pilha.h"
 #include "leArquivo.h"
+#include "uf.h"
 
 int main(int argc, char** argv ) {
     if (argc < 4) exit(1);
