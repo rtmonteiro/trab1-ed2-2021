@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "leArquivo.h"
-#include "planoR.h"
-
-#define TAM 10
-
 
 static int leM(FILE* fp) {
 

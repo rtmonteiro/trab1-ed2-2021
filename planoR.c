@@ -1,6 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
 #include "ponto.h"
 #include "distancia.h"
 #include "planoR.h"

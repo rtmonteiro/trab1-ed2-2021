@@ -1,13 +1,8 @@
 #include <string.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "ponto.h"
 #include "planoR.h"
-#include "distancia.h"
 #include "leArquivo.h"
-#include "uf.h"
-#include "pilha.h"
 
 int main(int argc, char** argv ) {
     if (argc < 4) exit(1);

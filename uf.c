@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "uf.h"
-#include "ponto.h"
 
 struct uf {
     Ponto** id;
